@@ -5,6 +5,8 @@ const morgan = require('morgan')
 const fs = require('fs')
 const path = require('path')
 
+const MongoDB = require('./db')
+
 const app = express()
 const port = process.env.PORT
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
@@ -22,4 +24,4 @@ app.use(express.static('public'))
 
 app.use('/', require('./routes'))
 
-app.listen(port, () => console.log(`${process.env.NODE_ENV !== 'production' ? 'Development' : 'Production'} server started on port ${port}`))
+app.listen(port, () => console.log(`${process.env.NODE_ENV !== 'production' ? 'Development' : 'Production'} server started on port ${port}...`))
