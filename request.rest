@@ -1,0 +1,25 @@
+http://localhost:5000/api
+
+
+### Check server status
+
+
+http://localhost:5000/api/v1
+
+
+### Register
+Content-Type: application/json
+
+{
+
+}
+
+
+### Login
+Content-Type: application/json
+{
+
+}
+
+
+###
