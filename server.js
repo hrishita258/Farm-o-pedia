@@ -4,7 +4,6 @@ const cors = require('cors')
 const morgan = require('morgan')
 const fs = require('fs')
 const path = require('path')
-
 const MongoDB = require('./db')
 
 const app = express()
