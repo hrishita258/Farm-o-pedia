@@ -1,3 +1,4 @@
 module.exports = {
-    QuarantinedPeople: require('./QuarantinedPeople')
+    QuarantinedPeople: require('./QuarantinedPeople'),
+    RefreshToken: require('./RefreshToken')
 }

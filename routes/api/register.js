@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
         const result = await QuarantinedPeople.create({
             name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password
         })
-        res.status(201).json({ status: 201, statusCode: 'success', message: 'Registration Successfull', user: result })
+        res.status(201).json({ status: 201, statusCode: 'success', message: 'Registration Successful', user: result })
     } catch (err) {
         if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedpeoples index: phoneNumber1')) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Phone Number already registered' })
         if (err.message) if (err.message.includes('QuarantinedPeople validation failed')) return res.status(400).json({ status: 400, statusCode: 'failed', message: err.message })

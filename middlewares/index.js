@@ -1,3 +1,4 @@
 module.exports = {
-    authApiKey: require('./authApiKey')
+    authApiKey: require('./authApiKey'),
+    authToken: require('./authToken')
 }
