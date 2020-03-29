@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
     if (!isMatch) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Password is incorrect' })
     const refreshToken = await jwt.sign(JSON.stringify(user), process.env.JWT_REFRESH_TOKEN_SECRET)
     const accessToken = await jwt.sign({
-        exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24),
+        exp: Math.floor(Date.now() / 1000) + (60 * 60 * 12),
         data: JSON.stringify(user)
     }, process.env.JWT_ACCESS_TOKEN_SECRET)
     await RefreshToken.create({ refreshToken })

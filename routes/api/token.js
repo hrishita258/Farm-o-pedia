@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
     const foundRefreshToken = await RefreshToken.findOne({ refreshToken })
     if (!foundRefreshToken) return res.status(401).json({ status: 401, statusCode: 'failed', message: 'Login again' })
     const accessToken = await jwt.sign({
-        exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24),
+        exp: Math.floor(Date.now() / 1000) + (60 * 60 * 12),
         data: JSON.stringify(user)
     }, process.env.JWT_ACCESS_TOKEN_SECRET)
     res.status(200).json({ status: 200, statusCode: 'success', message: 'New access token generated successfully', accessToken, refreshToken })

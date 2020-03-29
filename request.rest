@@ -65,7 +65,7 @@ Content-Type: application/json
 
 
 
-### Logout
+### Logout / delete refresh token
 POST http://localhost:5000/api/v1/logout
 x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 Content-Type: application/json
