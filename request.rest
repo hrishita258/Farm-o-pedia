@@ -5,21 +5,54 @@ http://localhost:5000/api
 
 
 http://localhost:5000/api/v1
+x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 
 
-### Register
+### Register  // travelHistory is optional
+POST http://localhost:5000/api/v1/register
+x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 Content-Type: application/json
 
 {
-
+    "name1": "Ekansh",
+    "name2": "Jain",
+    "phoneNumber1": "9530077351",
+    "phoneNumber2": "8619552249",
+    "age": 20,
+    "gender": "male",
+    "dateAnnounced": "2020-03-29T14:08:07.523Z",
+    "currentStatus": "quarantine😣",
+    "detectedCity": "Dream City🌆",
+    "detectedState": "Dream State",
+    "nationality": "Dream Country😍",
+    "address": "My Home Sweet Home",
+    "registrationLocation": {
+        "latitude": "23.453",
+        "longitude": "73.66832"
+    },
+    "quarantineLocation": {
+        "latitude": "25.56782",
+        "longitude": "75.6131"
+    },
+    "travelHistory": {
+        "route": "World Tour😝",
+        "date": "2020-03-28T14:08:07.523Z"
+    },
+    "password": "SuperStrongPassword"
 }
+
 
 
 ### Login
+POST http://localhost:5000/api/v1/login
+x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 Content-Type: application/json
-{
 
+{
+    "phoneNumber": "9530077351",
+    "password": "SuperStrongPassword"
 }
+
 
 
 ###
