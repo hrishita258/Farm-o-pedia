@@ -1,85 +1,43 @@
 http://localhost:5000/api
 
-
 ### Check server status
 
+http://localhost:5000/api/v1 x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 
-http://localhost:5000/api/v1
-x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
-
-
-### Register  // travelHistory is optional
-POST http://localhost:5000/api/v1/register
-x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
-Content-Type: application/json
+### Register // travelHistory is optional POST http://localhost:5000/api/v1/register x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr Content-Type: application/json
 
 {
-    "name1": "Himanshu",
-    "name2": "Tak",
-    "phoneNumber1": "8955808266",
-    "phoneNumber2": "8619552249",
-    "age": 20,
-    "gender": "male",
-    "dateAnnounced": "2020-03-29T14:08:07.523Z",
-    "currentStatus": "quarantine",
-    "detectedCity": "udaipur",
-    "detectedState": "rajasthan",
-    "nationality": "indian",
-    "address": "something",
-    "registrationLocation": {
-        "latitude": "23.453",
-        "longitude": "73.66832"
-    },
-    "quarantineLocation": {
-        "latitude": "25.56782",
-        "longitude": "75.6131"
-    },
-    "travelHistory": {
-        "route": "delhi se mumbai tak",
-        "date": "2020-03-28T14:08:07.523Z"
-    },
-    "password": "SuperStrongPassword"
+"name1": "Ekansh", "name2": "Jain", "phoneNumber1": "9530077351", "phoneNumber2": "8619552249", "age": 20, "gender": "male", "dateAnnounced": "2020-03-29T14:08:07.523Z", "currentStatus": "quarantinepersevere", "detectedCity": "Dream Citycity_sunset", "block": "Dream Block", "detectedState": "Dream State", "nationality": "Dream Countryheart_eyes", "address": "My Home Sweet Home", "registrationLocation": {
+
+"latitude": "23.453", "longitude": "73.66832"
+}, "quarantineLocation": {
+
+"latitude": "25.56782", "longitude": "75.6131"
+}, "travelHistory": {
+
+"route": "World Tourstuck_out_tongue_closed_eyes", "date": "2020-03-28T14:08:07.523Z"
+}, "password": "SuperStrongPassword"
+
 }
 
-
-
-### Login
-POST http://localhost:5000/api/v1/login
-x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
-Content-Type: application/json
+### Login POST http://localhost:5000/api/v1/login x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr Content-Type: application/json
 
 {
-    "phoneNumber": "9530077351",
-    "password": "SuperStrongPassword"
+"phoneNumber": "9530077351", "password": "SuperStrongPassword"
 }
 
-
-### Refresh Token / Re-generate access token
-POST http://localhost:5000/api/v1/token
-x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
-Content-Type: application/json
+### Refresh Token / Re-generate access token POST http://localhost:5000/api/v1/token x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJyZWdpc3RyYXRpb25Mb2NhdGlvbiI6eyJsYXRpdHVkZSI6MjMuNDUzLCJsb25naXR1ZGUiOjczLjY2ODMyfSwicXVhcmFudGluZUxvY2F0aW9uIjp7ImxhdGl0dWRlIjoyNS41Njc4MiwibG9uZ2l0dWRlIjo3NS42MTMxfSwidHJhdmVsSGlzdG9yeSI6eyJyb3V0ZSI6IldvcmxkIFRvdXLwn5idIiwiZGF0ZSI6IjIwMjAtMDMtMjhUMTQ6MDg6MDcuNTIzWiJ9LCJfaWQiOiI1ZTgwYWZiZDk1ZDkzYzJjNDA5ZDk0N2MiLCJuYW1lMSI6IkVrYW5zaCIsIm5hbWUyIjoiSmFpbiIsInBob25lTnVtYmVyMSI6OTUzMDA3NzM1MSwicGhvbmVOdW1iZXIyIjo4NjE5NTUyMjQ5LCJhZ2UiOjIwLCJnZW5kZXIiOiJtYWxlIiwiZGF0ZUFubm91bmNlZCI6IjIwMjAtMDMtMjlUMTQ6MDg6MDcuNTIzWiIsImN1cnJlbnRTdGF0dXMiOiJxdWFyYW50aW5l8J-YoyIsImRldGVjdGVkQ2l0eSI6IkRyZWFtIENpdHnwn4yGIiwiZGV0ZWN0ZWRTdGF0ZSI6IkRyZWFtIFN0YXRlIiwibmF0aW9uYWxpdHkiOiJEcmVhbSBDb3VudHJ58J-YjSIsImFkZHJlc3MiOiJNeSBIb21lIFN3ZWV0IEhvbWUiLCJwYXNzd29yZCI6IiQyYSQxMCRUSWtXWk1UNFZiSUtmYzgyWWNncEYuQm1jVHlnMWxsNnFjMnFjM1g2ckxZenhxYmtsQi9GdSIsImNyZWF0ZWRBdCI6IjIwMjAtMDMtMjlUMTQ6MjU6MDEuMjIyWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDMtMjlUMTQ6MjU6MDEuMjIyWiIsIl9fdiI6MH0.YymYSVJTJyfo3uNqTXhUs9AGq41wE2V6RaWvLJ6Xu4k"
+"refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJyZWdpc3RyYXRpb25Mb2NhdGlvbiI6eyJsYXRpdHVkZSI6MjMuNDUzLCJsb25naXR1ZGUiOjczLjY2ODMyfSwicXVhcmFudGluZUxvY2F0aW9uIjp7ImxhdGl0dWRlIjoyNS41Njc4MiwibG9uZ2l0dWRlIjo3NS42MTMxfSwidHJhdmVsSGlzdG9yeSI6eyJyb3V0ZSI6IldvcmxkIFRvdXLwn5idIiwiZGF0ZSI6IjIwMjAtMDMtMjhUMTQ6MDg6MDcuNTIzWiJ9LCJfaWQiOiI1ZTgwYWZiZDk1ZDkzYzJjNDA5ZDk0N2MiLCJuYW1lMSI6IkVrYW5zaCIsIm5hbWUyIjoiSmFpbiIsInBob25lTnVtYmVyMSI6OTUzMDA3NzM1MSwicGhvbmVOdW1iZXIyIjo4NjE5NTUyMjQ5LCJhZ2UiOjIwLCJnZW5kZXIiOiJtYWxlIiwiZGF0ZUFubm91bmNlZCI6IjIwMjAtMDMtMjlUMTQ6MDg6MDcuNTIzWiIsImN1cnJlbnRTdGF0dXMiOiJxdWFyYW50aW5l8J-YoyIsImRldGVjdGVkQ2l0eSI6IkRyZWFtIENpdHnwn4yGIiwiZGV0ZWN0ZWRTdGF0ZSI6IkRyZWFtIFN0YXRlIiwibmF0aW9uYWxpdHkiOiJEcmVhbSBDb3VudHJ58J-YjSIsImFkZHJlc3MiOiJNeSBIb21lIFN3ZWV0IEhvbWUiLCJwYXNzd29yZCI6IiQyYSQxMCRUSWtXWk1UNFZiSUtmYzgyWWNncEYuQm1jVHlnMWxsNnFjMnFjM1g2ckxZenhxYmtsQi9GdSIsImNyZWF0ZWRBdCI6IjIwMjAtMDMtMjlUMTQ6MjU6MDEuMjIyWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDMtMjlUMTQ6MjU6MDEuMjIyWiIsIl9fdiI6MH0.YymYSVJTJyfo3uNqTXhUs9AGq41wE2V6RaWvLJ6Xu4k"
 }
 
-
-
-### Logout / delete refresh token
-POST http://localhost:5000/api/v1/logout
-x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
-Content-Type: application/json
+### Logout / delete refresh token POST http://localhost:5000/api/v1/logout x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJyZWdpc3RyYXRpb25Mb2NhdGlvbiI6eyJsYXRpdHVkZSI6MjMuNDUzLCJsb25naXR1ZGUiOjczLjY2ODMyfSwicXVhcmFudGluZUxvY2F0aW9uIjp7ImxhdGl0dWRlIjoyNS41Njc4MiwibG9uZ2l0dWRlIjo3NS42MTMxfSwidHJhdmVsSGlzdG9yeSI6eyJyb3V0ZSI6IldvcmxkIFRvdXLwn5idIiwiZGF0ZSI6IjIwMjAtMDMtMjhUMTQ6MDg6MDcuNTIzWiJ9LCJfaWQiOiI1ZTgwYWZiZDk1ZDkzYzJjNDA5ZDk0N2MiLCJuYW1lMSI6IkVrYW5zaCIsIm5hbWUyIjoiSmFpbiIsInBob25lTnVtYmVyMSI6OTUzMDA3NzM1MSwicGhvbmVOdW1iZXIyIjo4NjE5NTUyMjQ5LCJhZ2UiOjIwLCJnZW5kZXIiOiJtYWxlIiwiZGF0ZUFubm91bmNlZCI6IjIwMjAtMDMtMjlUMTQ6MDg6MDcuNTIzWiIsImN1cnJlbnRTdGF0dXMiOiJxdWFyYW50aW5l8J-YoyIsImRldGVjdGVkQ2l0eSI6IkRyZWFtIENpdHnwn4yGIiwiZGV0ZWN0ZWRTdGF0ZSI6IkRyZWFtIFN0YXRlIiwibmF0aW9uYWxpdHkiOiJEcmVhbSBDb3VudHJ58J-YjSIsImFkZHJlc3MiOiJNeSBIb21lIFN3ZWV0IEhvbWUiLCJwYXNzd29yZCI6IiQyYSQxMCRUSWtXWk1UNFZiSUtmYzgyWWNncEYuQm1jVHlnMWxsNnFjMnFjM1g2ckxZenhxYmtsQi9GdSIsImNyZWF0ZWRBdCI6IjIwMjAtMDMtMjlUMTQ6MjU6MDEuMjIyWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDMtMjlUMTQ6MjU6MDEuMjIyWiIsIl9fdiI6MH0.YymYSVJTJyfo3uNqTXhUs9AGq41wE2V6RaWvLJ6Xu4k"
+"refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJyZWdpc3RyYXRpb25Mb2NhdGlvbiI6eyJsYXRpdHVkZSI6MjMuNDUzLCJsb25naXR1ZGUiOjczLjY2ODMyfSwicXVhcmFudGluZUxvY2F0aW9uIjp7ImxhdGl0dWRlIjoyNS41Njc4MiwibG9uZ2l0dWRlIjo3NS42MTMxfSwidHJhdmVsSGlzdG9yeSI6eyJyb3V0ZSI6IldvcmxkIFRvdXLwn5idIiwiZGF0ZSI6IjIwMjAtMDMtMjhUMTQ6MDg6MDcuNTIzWiJ9LCJfaWQiOiI1ZTgwYWZiZDk1ZDkzYzJjNDA5ZDk0N2MiLCJuYW1lMSI6IkVrYW5zaCIsIm5hbWUyIjoiSmFpbiIsInBob25lTnVtYmVyMSI6OTUzMDA3NzM1MSwicGhvbmVOdW1iZXIyIjo4NjE5NTUyMjQ5LCJhZ2UiOjIwLCJnZW5kZXIiOiJtYWxlIiwiZGF0ZUFubm91bmNlZCI6IjIwMjAtMDMtMjlUMTQ6MDg6MDcuNTIzWiIsImN1cnJlbnRTdGF0dXMiOiJxdWFyYW50aW5l8J-YoyIsImRldGVjdGVkQ2l0eSI6IkRyZWFtIENpdHnwn4yGIiwiZGV0ZWN0ZWRTdGF0ZSI6IkRyZWFtIFN0YXRlIiwibmF0aW9uYWxpdHkiOiJEcmVhbSBDb3VudHJ58J-YjSIsImFkZHJlc3MiOiJNeSBIb21lIFN3ZWV0IEhvbWUiLCJwYXNzd29yZCI6IiQyYSQxMCRUSWtXWk1UNFZiSUtmYzgyWWNncEYuQm1jVHlnMWxsNnFjMnFjM1g2ckxZenhxYmtsQi9GdSIsImNyZWF0ZWRBdCI6IjIwMjAtMDMtMjlUMTQ6MjU6MDEuMjIyWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDMtMjlUMTQ6MjU6MDEuMjIyWiIsIl9fdiI6MH0.YymYSVJTJyfo3uNqTXhUs9AGq41wE2V6RaWvLJ6Xu4k"
 }
 
-
-### Get quarantined user profile
-GET http://localhost:5000/api/v1/profile
-x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODU1ODUyNDcsImRhdGEiOiJ7XCJyZWdpc3RyYXRpb25Mb2NhdGlvblwiOntcImxhdGl0dWRlXCI6MjMuNDUzLFwibG9uZ2l0dWRlXCI6NzMuNjY4MzJ9LFwicXVhcmFudGluZUxvY2F0aW9uXCI6e1wibGF0aXR1ZGVcIjoyNS41Njc4MixcImxvbmdpdHVkZVwiOjc1LjYxMzF9LFwidHJhdmVsSGlzdG9yeVwiOntcInJvdXRlXCI6XCJXb3JsZCBUb3Vy8J-YnVwiLFwiZGF0ZVwiOlwiMjAyMC0wMy0yOFQxNDowODowNy41MjNaXCJ9LFwiX2lkXCI6XCI1ZTgxNzM5MzNjODFmNDE1MmM2MTI4OWVcIixcIm5hbWUxXCI6XCJFa2Fuc2hcIixcIm5hbWUyXCI6XCJKYWluXCIsXCJwaG9uZU51bWJlcjFcIjo5NTMwMDc3MzUxLFwicGhvbmVOdW1iZXIyXCI6ODYxOTU1MjI0OSxcImFnZVwiOjIwLFwiZ2VuZGVyXCI6XCJtYWxlXCIsXCJkYXRlQW5ub3VuY2VkXCI6XCIyMDIwLTAzLTI5VDE0OjA4OjA3LjUyM1pcIixcImN1cnJlbnRTdGF0dXNcIjpcInF1YXJhbnRpbmXwn5ijXCIsXCJkZXRlY3RlZENpdHlcIjpcIkRyZWFtIENpdHnwn4yGXCIsXCJkZXRlY3RlZFN0YXRlXCI6XCJEcmVhbSBTdGF0ZVwiLFwibmF0aW9uYWxpdHlcIjpcIkRyZWFtIENvdW50cnnwn5iNXCIsXCJhZGRyZXNzXCI6XCJNeSBIb21lIFN3ZWV0IEhvbWVcIixcInBhc3N3b3JkXCI6XCIkMmEkMTAka3B4dTRFQnNmWEloa2c1ZTI5d0NJdThiaWp6R0tJODJFajZ1Wi9DMXVzVy9RMkRpLktYdmVcIixcImNyZWF0ZWRBdFwiOlwiMjAyMC0wMy0zMFQwNDoyMDozNS4wNzFaXCIsXCJ1cGRhdGVkQXRcIjpcIjIwMjAtMDMtMzBUMDQ6MjA6MzUuMDcxWlwiLFwiX192XCI6MH0iLCJpYXQiOjE1ODU1NDIwNDd9.6d1u-LrTg83ADBPkC6GPCiCIlunjI4e4ABPtLdReEqo
-
-
+### Get quarantined user profile GET http://localhost:5000/api/v1/profile x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODU1ODUyNDcsImRhdGEiOiJ7XCJyZWdpc3RyYXRpb25Mb2NhdGlvblwiOntcImxhdGl0dWRlXCI6MjMuNDUzLFwibG9uZ2l0dWRlXCI6NzMuNjY4MzJ9LFwicXVhcmFudGluZUxvY2F0aW9uXCI6e1wibGF0aXR1ZGVcIjoyNS41Njc4MixcImxvbmdpdHVkZVwiOjc1LjYxMzF9LFwidHJhdmVsSGlzdG9yeVwiOntcInJvdXRlXCI6XCJXb3JsZCBUb3Vy8J-YnVwiLFwiZGF0ZVwiOlwiMjAyMC0wMy0yOFQxNDowODowNy41MjNaXCJ9LFwiX2lkXCI6XCI1ZTgxNzM5MzNjODFmNDE1MmM2MTI4OWVcIixcIm5hbWUxXCI6XCJFa2Fuc2hcIixcIm5hbWUyXCI6XCJKYWluXCIsXCJwaG9uZU51bWJlcjFcIjo5NTMwMDc3MzUxLFwicGhvbmVOdW1iZXIyXCI6ODYxOTU1MjI0OSxcImFnZVwiOjIwLFwiZ2VuZGVyXCI6XCJtYWxlXCIsXCJkYXRlQW5ub3VuY2VkXCI6XCIyMDIwLTAzLTI5VDE0OjA4OjA3LjUyM1pcIixcImN1cnJlbnRTdGF0dXNcIjpcInF1YXJhbnRpbmXwn5ijXCIsXCJkZXRlY3RlZENpdHlcIjpcIkRyZWFtIENpdHnwn4yGXCIsXCJkZXRlY3RlZFN0YXRlXCI6XCJEcmVhbSBTdGF0ZVwiLFwibmF0aW9uYWxpdHlcIjpcIkRyZWFtIENvdW50cnnwn5iNXCIsXCJhZGRyZXNzXCI6XCJNeSBIb21lIFN3ZWV0IEhvbWVcIixcInBhc3N3b3JkXCI6XCIkMmEkMTAka3B4dTRFQnNmWEloa2c1ZTI5d0NJdThiaWp6R0tJODJFajZ1Wi9DMXVzVy9RMkRpLktYdmVcIixcImNyZWF0ZWRBdFwiOlwiMjAyMC0wMy0zMFQwNDoyMDozNS4wNzFaXCIsXCJ1cGRhdGVkQXRcIjpcIjIwMjAtMDMtMzBUMDQ6MjA6MzUuMDcxWlwiLFwiX192XCI6MH0iLCJpYXQiOjE1ODU1NDIwNDd9.6d1u-LrTg83ADBPkC6GPCiCIlunjI4e4ABPtLdReEqo
 
 ###
