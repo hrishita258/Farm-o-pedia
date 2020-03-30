@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
                 console.log(err)
                 return res.status(500).json({ status: 500, statusCode: 'failed', error: err })
             }
-            bcrypt.hash(password, salt, (err, hash) => {
+            bcrypt.hash(password, salt, async (err, hash) => {
                 if (err) {
                     console.log(err)
                     return res.status(500).json({ status: 500, statusCode: 'failed', error: err })
