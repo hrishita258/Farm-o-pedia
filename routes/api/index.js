@@ -12,9 +12,10 @@ router.get('/', (req, res) => {
 
 router.use('/register', require('./register'))
 router.use('/login', require('./login'))
-router.use('/token', require('./token'))
-router.use('/logout', require('./logout'))
+// router.use('/token', require('./token'))
+// router.use('/logout', require('./logout'))
 router.use('/profile', require('./profile'))
 router.use('/upload', require('./upload'))
+router.use('/outofarea', require('./outOfArea'))
 
 module.exports = router

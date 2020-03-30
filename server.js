@@ -13,7 +13,7 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),
 app.set('view engine', 'ejs')
 app.use(cors({
     "origin": "*",
-    "methods": "GET,POST",
+    "methods": "GET,POST,DELETE",
     "preflightContinue": false,
     "optionsSuccessStatus": 204
 }))

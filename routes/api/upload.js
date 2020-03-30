@@ -32,11 +32,14 @@ const voiceNoteFilter = (req, file, next) => {
 }
 
 router.post('/location', async (req, res) => {
-    if (!req.body.location.latitude || !req.body.location.longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'location.latitude and location.longitude are required' })
+    if (!req.body.latitude || !req.body.longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
     const quarantinedUserUpload = new QuarantinedUserUpload({
         _quarantinedUserId: req.user._id,
         uploadType: 'location',
-        location: req.body.location
+        location: {
+            latitude: req.body.latitude,
+            longitude: req.body.longitude
+        }
     })
     try {
         await quarantinedUserUpload.save()

@@ -18,13 +18,18 @@ router.post('/', async (req, res) => {
     if (!user) return res.status(404).json({ status: 404, statusCode: 'failed', message: 'User Not Found' })
     const isMatch = await bcrypt.compare(password, user.password)
     if (!isMatch) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Password is incorrect' })
-    // const refreshToken = await jwt.sign(JSON.stringify(user), process.env.JWT_REFRESH_TOKEN_SECRET)
+    // const refreshToken = await jwt.sign({
+    //     data: JSON.stringify(user)
+    // }, process.env.JWT_REFRESH_TOKEN_SECRET)
     const accessToken = await jwt.sign({
         // exp: Math.floor(Date.now() / 1000) + (60 * 60 * 12),
         data: JSON.stringify(user)
     }, process.env.JWT_ACCESS_TOKEN_SECRET)
-    // await RefreshToken.create({ refreshToken })
-    res.json({ status: 200, statusCode: 'success', message: 'Login Successful', data: user, accessToken, refreshToken: null })
+    // await RefreshToken.create({
+    //     _quarantinedUserId: user._id, refreshToken
+    // })
+    // res.json({ status: 200, statusCode: 'success', message: 'Login Successful', data: user, accessToken, refreshToken })
+    res.json({ status: 200, statusCode: 'success', message: 'Login Successful', data: user, accessToken })
 })
 
 module.exports = router
