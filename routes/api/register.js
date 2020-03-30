@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 
 const router = express.Router()
 
-const { QuarantinedPeople } = require('../../models')
+const { QuarantinedUser } = require('../../models')
 
 router.get('/', (req, res) => {
     res.status(400).json({ status: 400, message: 'Send post request to this api' })
@@ -23,13 +23,13 @@ router.post('/', async (req, res) => {
                 return res.status(500).json({ status: 500, statusCode: 'failed', error: err })
             }
             try {
-                const result = await QuarantinedPeople.create({
+                const result = await QuarantinedUser.create({
                     name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash
                 })
                 res.status(201).json({ status: 201, statusCode: 'success', message: 'Registration Successful', user: result })
             } catch (err) {
-                if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedpeoples index: phoneNumber1')) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Phone Number already registered' })
-                if (err.message) if (err.message.includes('QuarantinedPeople validation failed')) return res.status(400).json({ status: 400, statusCode: 'failed', message: err.message })
+                if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedusers index: phoneNumber1')) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Phone Number already registered' })
+                if (err.message) if (err.message.includes('QuarantinedUser validation failed')) return res.status(400).json({ status: 400, statusCode: 'failed', message: err.message })
                 res.status(500).json({ status: 500, statusCode: 'failed', message: 'Something went wrong', error: err })
                 console.log(err)
             }

@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const { authApiKey, authToken } = require('../../middlewares')
+const { authApiKey } = require('../../middlewares')
 
 router.use(authApiKey)
 
@@ -15,5 +15,6 @@ router.use('/login', require('./login'))
 router.use('/token', require('./token'))
 router.use('/logout', require('./logout'))
 router.use('/profile', require('./profile'))
+router.use('/upload', require('./upload'))
 
 module.exports = router

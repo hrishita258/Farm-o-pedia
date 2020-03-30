@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const QuarantinedPeopleSchema = new mongoose.Schema({
+const QuarantinedUserSchema = new mongoose.Schema({
     name1: {
         type: String,
         required: true
@@ -78,6 +78,9 @@ const QuarantinedPeopleSchema = new mongoose.Schema({
         route: {
             type: String
         },
+        travelType: {
+            type: String
+        },
         date: {
             type: Date
         }
@@ -90,4 +93,4 @@ const QuarantinedPeopleSchema = new mongoose.Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('QuarantinedPeople', QuarantinedPeopleSchema)
+module.exports = mongoose.model('QuarantinedUser', QuarantinedUserSchema)
