@@ -10,5 +10,6 @@ module.exports = async (req, res, next) => {
     } catch (err) {
         return res.status(401).json({ status: 401, statusCode: 'failed', message: 'Invalid Access Token' })
     }
+    req.user = user
     next()
 }
