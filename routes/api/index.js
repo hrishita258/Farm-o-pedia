@@ -4,7 +4,7 @@ const router = express.Router()
 
 const { authApiKey, authToken } = require('../../middlewares')
 
-router.use(authApiKey)
+// router.use(authApiKey)
 
 router.get('/', (req, res) => {
     res.json({ status: 200, statusCode: 'success', message: 'API v1 server up and running...' })
