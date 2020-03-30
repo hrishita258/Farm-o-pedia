@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const { authApiKey } = require('../../middlewares')
+// const { authApiKey } = require('../../middlewares')
 
 router.use(authApiKey)
 
