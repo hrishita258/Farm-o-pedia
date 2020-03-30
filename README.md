@@ -6,6 +6,11 @@
 # Set these environment variabbles
 ### NODE_ENV
 ### PORT
+### APP_PORT
+### MONGODB_URI
+### API_KEY
+### JWT_ACCESS_TOKEN_SECRET
+### JWT_REFRESH_TOKEN_SECRET
 
 
 # Install Dependencies
