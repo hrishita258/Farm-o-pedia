@@ -14,9 +14,6 @@ router.use('/register', require('./register'))
 router.use('/login', require('./login'))
 router.use('/token', require('./token'))
 router.use('/logout', require('./logout'))
-
-router.get('/protected', authToken, (req, res) => {
-    res.send('protected')
-})
+router.use('/profile', require('./profile'))
 
 module.exports = router
