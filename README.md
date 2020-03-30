@@ -21,3 +21,6 @@
 
 # Start Development Server
 ## npm run dev
+
+# Start dashboard app
+## npm run app
