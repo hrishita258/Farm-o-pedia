@@ -14,18 +14,18 @@ x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 Content-Type: application/json
 
 {
-    "name1": "Ekansh",
-    "name2": "Jain",
-    "phoneNumber1": "9530077351",
+    "name1": "Himanshu",
+    "name2": "Tak",
+    "phoneNumber1": "8955808266",
     "phoneNumber2": "8619552249",
     "age": 20,
     "gender": "male",
     "dateAnnounced": "2020-03-29T14:08:07.523Z",
-    "currentStatus": "quarantine😣",
-    "detectedCity": "Dream City🌆",
-    "detectedState": "Dream State",
-    "nationality": "Dream Country😍",
-    "address": "My Home Sweet Home",
+    "currentStatus": "quarantine",
+    "detectedCity": "udaipur",
+    "detectedState": "rajasthan",
+    "nationality": "indian",
+    "address": "something",
     "registrationLocation": {
         "latitude": "23.453",
         "longitude": "73.66832"
@@ -35,7 +35,7 @@ Content-Type: application/json
         "longitude": "75.6131"
     },
     "travelHistory": {
-        "route": "World Tour😝",
+        "route": "delhi se mumbai tak",
         "date": "2020-03-28T14:08:07.523Z"
     },
     "password": "SuperStrongPassword"
