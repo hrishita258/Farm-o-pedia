@@ -23,6 +23,7 @@ Content-Type: application/json
     "dateAnnounced": "2020-03-29T14:08:07.523Z",
     "currentStatus": "quarantine😣",
     "detectedCity": "Dream City🌆",
+    "block": "Dream Block",
     "detectedState": "Dream State",
     "nationality": "Dream Country😍",
     "address": "My Home Sweet Home",

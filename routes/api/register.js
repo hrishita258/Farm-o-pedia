@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password } = req.body
+    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password } = req.body
     if (password && password.length < 6) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Password length should be more than 6' })
     bcrypt.genSalt(10, (err, salt) => {
         if (err) {
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
             }
             try {
                 const result = await QuarantinedPeople.create({
-                    name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash
+                    name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash
                 })
                 res.status(201).json({ status: 201, statusCode: 'success', message: 'Registration Successful', user: result })
             } catch (err) {

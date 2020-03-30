@@ -38,6 +38,10 @@ const QuarantinedPeopleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    block: {
+        type: String,
+        required: true
+    },
     detectedState: {
         type: String,
         required: true
