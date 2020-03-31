@@ -1,12 +1,20 @@
 const mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schema({
+const DashboardUserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
         unique: true
     },
     password: {
+        type: String,
+        required: true
+    },
+    state: {
+        type: String,
+        required: true
+    },
+    city: {
         type: String,
         required: true
     },
@@ -22,4 +30,4 @@ const UserSchema = new mongoose.Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('DashboardUser', DashboardUserSchema)

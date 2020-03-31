@@ -88,7 +88,8 @@ const QuarantinedUserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    quarantineEndAt: Date
 }, {
     timestamps: true
 })

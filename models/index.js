@@ -3,5 +3,5 @@ module.exports = {
     RefreshToken: require('./RefreshToken'),
     QuarantinedUserUpload: require('./QuarantinedUserUploads'),
     userOutOfArea: require('./userOutOfArea'),
-    User: require('./User')
+    User: require('./DashboardUser')
 }
