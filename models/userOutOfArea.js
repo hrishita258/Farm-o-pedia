@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const userOutOfAreaSchema = new mongoose.Schema({
+const UserOutOfAreaSchema = new mongoose.Schema({
     _quarantinedUserId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
@@ -16,4 +16,4 @@ const userOutOfAreaSchema = new mongoose.Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('userOutOfArea', userOutOfAreaSchema)
+module.exports = mongoose.model('UserOutOfArea', UserOutOfAreaSchema)

@@ -1,27 +1,39 @@
 const express = require('express')
 const path = require('path')
 
+const { checkUserAuthenticated } = require('../middlewares')
+
 const router = express.Router()
 
+router.use(checkUserAuthenticated)
+
 router.get('/', (req, res) => {
-    res.render('login')
+    if (req.user.role == 0) return res.redirect('/superadmin')
+    else if (req.user.role == 1) return res.redirect('/admin')
+    else {
+        req.logOut()
+        res.redirect('/login')
+    }
 })
 
-router.get('/admin', (req, res) => {
-    res.render('dashboard')
-})
+router.use('/superadmin', require('./superAdmin'))
+router.use('/admin', require('./admin'))
 
-router.get('/admin/patientdetails', (req, res) => {
-    res.render('Patient')
-})
+// router.get('/admin', (req, res) => {
+//     res.render('dashboard')
+// })
 
-router.get('/admin/notification', (req, res) => {
-    res.render('notification')
-})
+// router.get('/admin/patientdetails', (req, res) => {
+//     res.render('Patient')
+// })
 
-router.get('/superadmin', (req, res) => {
-    res.render('admin')
-})
+// router.get('/admin/notification', (req, res) => {
+//     res.render('notification')
+// })
+
+// router.get('/superadmin', (req, res) => {
+//     res.render('admin')
+// })
 
 router.get('*', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, '../public/404.html'))

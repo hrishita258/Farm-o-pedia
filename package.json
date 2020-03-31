@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "dev": "nodemon server.js",
     "app": "node app.js",
-    "dev": "nodemon server.js"
+    "app:dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -25,12 +26,18 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.2.0",
     "cors": "^2.8.5",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
     "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
     "mongoose": "^5.9.6",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
   }
 }
