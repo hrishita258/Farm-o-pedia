@@ -7,7 +7,8 @@ const router = express.Router()
 router.use(checUserSuperAdmin)
 
 router.get('/', (req, res) => {
-    res.send('Super Admin')
+
+    res.render('admin')
 })
 
 module.exports = router
