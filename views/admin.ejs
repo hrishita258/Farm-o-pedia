@@ -40,8 +40,8 @@
         <div class="container-fluid">
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+          <span class="navbar-toggler-icon"></span>
+        </button>
             <!-- Brand -->
             <a class="navbar-brand pt-0" href="../index.html">
                 <img src="https://invisioncommunity.co.uk/wp-content/uploads/2017/01/QuarantineLogo_Blk_whitebgnd.png" class="navbar-brand-img" alt="...">
@@ -52,8 +52,9 @@
                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
                             <span class="avatar avatar-sm rounded-circle">
-                                    <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                                </span>
+                  <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg
+">
+                </span>
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
@@ -80,9 +81,9 @@
                         </div>
                         <div class="col-6 collapse-close">
                             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
-                                    <span></span>
-                                    <span></span>
-                                </button>
+                  <span></span>
+                  <span></span>
+                </button>
                         </div>
                     </div>
                 </div>
@@ -102,6 +103,11 @@
                     <li class="nav-item  active ">
                         <a class="nav-link " href="#">
                             <i class="ni ni-tv-2 text-primary"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/admin/notification">
+                            <i class="ni ni-planet text-blue"></i> Notification
                         </a>
                     </li>
                 </ul>
@@ -134,8 +140,8 @@
                         <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="media align-items-center">
                                 <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg">
-                                    </span>
+                    <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg">
+                  </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
                                     <span class="mb-0 text-sm  font-weight-bold">Admin Name</span>
                                 </div>
@@ -161,12 +167,92 @@
             <div class="container-fluid">
                 <div class="header-body">
                     <!-- Card stats -->
-                    <button class="btn btn-secondary" data-toggle="modal" data-target="#modal-form">Add New
-                            Admin</button>
-                    <a href="#" class="btn btn-neutral btn-icon" data-toggle="modal" data-target="#examplemodal">
-                        <span class="btn-inner--icon"><img src="../../assets/img/icons/common/github.svg"></span>
-                        <span class="btn-inner--text">Import</span>
-                    </a>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="card card-stats mb-4 mb-xl-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total Patient</h5>
+                                            <span class="h2 font-weight-bold mb-0">350,897</span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                <i class="fas fa-chart-bar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                        <span class="text-nowrap">Since last month</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="card card-stats mb-4 mb-xl-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                                            <span class="h2 font-weight-bold mb-0">2,356</span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                                <i class="fas fa-chart-pie"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                        <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
+                                        <span class="text-nowrap">Since last week</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="card card-stats mb-4 mb-xl-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                                            <span class="h2 font-weight-bold mb-0">924</span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                                <i class="fas fa-users"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                        <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
+                                        <span class="text-nowrap">Since yesterday</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="card card-stats mb-4 mb-xl-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                                            <span class="h2 font-weight-bold mb-0">49,65%</span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                                <i class="fas fa-percent"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                        <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
+                                        <span class="text-nowrap">Since last month</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -181,63 +267,38 @@
                         <div class="table-responsive p-4">
                             <table class="table align-items-center" id="dataTable" width="100%" cellspacing="0">
                                 <thead class="thead-light">
-
                                     <tr>
                                         <th>SNO.</th>
-                                        <th scope="col">Admin Name</th>
+                                        <th scope="col">Name of Patient</th>
                                         <th scope="col">Phone No.</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col">Age</th>
                                         <th scope="col">Gender</th>
-                                        <th scope="col">Block</th>
-                                        <th scope="col">city</th>
-                                        <th scope="col">state</th>
+                                        <th scope="col">detected City</th>
+                                        <th scope="col">Date Announced</th>
+                                        <th scope="col">Quarantined Date</th>
                                         <th scope="col">action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% var data = [{
-                                        a: "Something",
-                                        b:"Something",
-                                        c:"Something",
-                                        d:"Something"
-                                    },{
-                                        a: "Something",
-                                        b:"Something",
-                                        c:"Something",
-                                        d:"Something"
-                                    },{
-                                        a: "Something",
-                                        b:"Something",
-                                        c:"Something",
-                                        d:"Something"
-                                    },
-                                    {
-                                        a: "Something",
-                                        b:"Something",
-                                        c:"Something",
-                                        d:"Something"
-                                    }] %>
-
-                                        < <tr>
-                                            <td>1</td>
-                                            <td>Something</td>
-                                            <td>Something</td>
-                                            <td>Something</td>
-                                            <td>Something</td>
-                                            <td>Something</td>
-                                            <td>Something</td>
-                                            <td><span class="badge badge-primary">Something</span></td>
+                                    <%users.forEach((user, index) => {%>
+                                        <tr>
+                                            <td><%=index+1%></td>
+                                            <td><%=user.name1%></td>
+                                            <td><%=user.phoneNumber1%></td>
+                                            <td><%=user.age%></td>
+                                            <td><%=user.gender%></td>
+                                            <td><%=user.detectedCity%></td>
+                                            <td><%=user.dateAnnounced%></td>
+                                            <td><%=user.createdAt%></td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a href="/admin/patientdetails" class="btn btn-primary btn-sm rounded-circle"><i
-                                                            class="fas fa-eye"></i></a>
-                                                    <a href="#" class="btn btn-dark btn-sm rounded-circle"><i
-                                                            class="fas fa-edit"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm rounded-circle"><i
-                                                            class="fas fa-trash"></i></a>
+                                                    <a href="/admin/patientdetails" class="btn btn-primary btn-sm rounded-circle"><i class="fas fa-eye"></i></a>
+                                                    <a href="#" class="btn btn-dark btn-sm rounded-circle"><i class="fas fa-edit"></i></a>
+                                                    <a href="#" class="btn btn-danger btn-sm rounded-circle"><i class="fas fa-trash"></i></a>
                                                 </div>
                                             </td>
-                                            </tr>
+                                        </tr>
+                                    <%})%>
                                 </tbody>
                             </table>
                         </div>
@@ -259,169 +320,29 @@
             </footer>
         </div>
     </div>
+    <!--   Core   -->
+    <!-- <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- Import new admins -->
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-    <!-- Modal -->
-    <div class="modal fade" id="examplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Import admins</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="modal-body">
-                    <div class="text-center">
-                        <button class="mb-3 btn btn-info">Download template</button>
-                    </div>
-                    <h4 class="text-primary">Or Upload file</h4>
-                    <form id="file-upload-form" class="uploader">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Upload</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- add new admin -->
-    <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-        <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-body p-0">
-                    <div class="card bg-secondary border-0 mb-0">
-                        <div class="card-body px-lg-5 py-lg-5">
-                            <div class="text-center text-muted mb-4">
-                                <small>Admin details</small>
-                            </div>
-                            <form>
-                                <h6 class="heading-small text-muted mb-4">User information</h6>
-                                <div class="pl-lg-4">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-username">Phone
-                                                        No.</label>
-                                                <input type="text" id="input-username" class="form-control" placeholder="enter admin phone number" value="1234567890">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-email">Email
-                                                        address</label>
-                                                <input type="email" id="input-email" class="form-control" placeholder="jesse@example.com">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-first-name">First
-                                                        name</label>
-                                                <input type="text" id="input-first-name" class="form-control" placeholder="First name" value="Lucky">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-last-name">Last
-                                                        name</label>
-                                                <input type="text" id="input-last-name" class="form-control" placeholder="Last name" value="Jesse">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="my-4">
-                                <!-- Address -->
-                                <h6 class="heading-small text-muted mb-4">Contact information</h6>
-                                <div class="pl-lg-4">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-address">Address</label>
-                                                <input id="input-address" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-block">Block
-                                                        Name</label>
-                                                <input type="number" id="input-block" class="form-control" placeholder="block name">
-                                            </div>
-                                        </div>
-                                        <div class=" col-lg-6 ">
-                                            <div class="form-group ">
-                                                <label class="form-control-label " for="input-postal-code ">Postal
-                                                        code</label>
-                                                <input type="number " id="input-postal-code " class="form-control " placeholder="Postal code ">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 ">
-                                            <div class="form-group ">
-                                                <label class="form-control-label " for="input-city ">City</label>
-                                                <input type="text " id="input-city " class="form-control " placeholder="City " value="New York ">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 ">
-                                            <div class="form-group ">
-                                                <label class="form-control-label " for="input-country ">Country</label>
-                                                <input type="text " id="input-country " class="form-control " placeholder="Country " value="United States ">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="my-4 ">
-                                <!-- Description -->
-                                <div class="text-center ">
-                                    <button type="button " class="btn btn-primary my-4 ">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--   Core   -->
-        <!-- <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script> -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-        <!-- Popper JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-        <!-- Latest compiled JavaScript -->
-        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/jquery.min.js"></script> -->
-        <!--   Optional JS   -->
-        <!--   Argon JS   -->
-        <script src="../assets/js/argon-dashboard.min.js?v=1.1.1"></script>
-        <!-- datatable js -->
-        <script src="../datatables/jquery.dataTables.min.js" type="text/javascript"></script>
-        <script src="../datatables/dataTables.bootstrap4.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#dataTable").DataTable();
-            });
-        </script>
-        <script>
-            // Add the following code if you want the name of the file appear on select
-            $(".custom-file-input").on("change", function() {
-                var fileName = $(this).val().split("\\").pop();
-                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-            });
-        </script>
+    <!-- Latest compiled JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/jquery.min.js"></script> -->
+    <!--   Optional JS   -->
+    <!--   Argon JS   -->
+    <script src="../assets/js/argon-dashboard.min.js?v=1.1.1"></script>
+    <!-- datatable js -->
+    <script src="../datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../datatables/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#dataTable").DataTable();
+        });
+    </script>
 </body>
-
 
 </html>
