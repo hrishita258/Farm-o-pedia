@@ -5,22 +5,26 @@ const router = express.Router()
 
 const { checUserSuperAdmin } = require('../middlewares')
 const { DashboardUser } = require('../models')
+const { randomString } = require('../util')
 
 router.use(checUserSuperAdmin)
-
-const randomString = n => {
-    let text = ''
-    let length = n
-    let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (i = 0; i < length; i++) text += possible.charAt(Math.floor(Math.random() * possible.length))
-    return text
-}
 
 router.get('/', async (req, res) => {
     const foundAdmins = await DashboardUser.find({ role: 1 })
     res.render('superAdmin', {
         users: foundAdmins
     })
+})
+
+router.get('/admin/:id', async (req, res) => {
+    try {
+        const foundAdmin = await DashboardUser.findOne({ _id: req.params.id })
+        if (!foundAdmin) return res.redirect('/')
+        res.render('adminProfile', { user: foundAdmin })
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
 })
 
 router.post('/admin', async (req, res) => {
@@ -42,6 +46,16 @@ router.post('/admin', async (req, res) => {
         if (err.name) if (err.name.includes('ValidationError')) return res.send('Validation Error must be a phone number')
         console.log(err)
         res.status(500).send('Something Went Wrong')
+    }
+})
+
+router.delete('/admin/:id', async (req, res) => {
+    try {
+        await DashboardUser.deleteOne({ _id: req.params.id })
+        res.redirect('/')
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
     }
 })
 
