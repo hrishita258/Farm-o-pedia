@@ -19,11 +19,11 @@ router.get('/', async (req, res) => {
 router.get('/admin/:id', async (req, res) => {
     try {
         const foundAdmin = await DashboardUser.findOne({ _id: req.params.id })
-        if (!foundAdmin) return res.redirect('/')
-        res.render('adminProfile', { user: foundAdmin })
+        if (!foundAdmin) return res.json({ status: 404, message: 'Not Found' })
+        res.json({ status: 200, data: foundAdmin })
     } catch (err) {
         console.log(err)
-        res.redirect('/')
+        res.send(err)
     }
 })
 
