@@ -20,5 +20,25 @@ router.use('/outofarea', require('./outOfArea'))
 router.use('/changepassword', require('./changePassword'))
 router.use('/endquarantine', require('./endQuarantine'))
 router.use('/changequarantinelocation', require('./changeQuarantineLocation'))
+// Temporary routes
+router.post('/temp', async (req, res) => {
+    const { QuarantinedUserUpload } = require('../../models')
+    if (!req.body.latitude || !req.body.longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
+    const quarantinedUserUpload = new QuarantinedUserUpload({
+        _quarantinedUserId: '5e81e023d317f60cdcd97de5',
+        uploadType: 'location',
+        location: {
+            latitude: req.body.latitude,
+            longitude: req.body.longitude
+        }
+    })
+    try {
+        await quarantinedUserUpload.save()
+        res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+    }
+})
 
 module.exports = router
