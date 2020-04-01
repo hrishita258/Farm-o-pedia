@@ -147,7 +147,6 @@
                             </div>
                             <div class="dropdown-divider"></div>
                             <form action="/logout" method="POST">
-
                                 <button class="dropdown-item" type="submit"><i class="ni ni-user-run"></i>
                                         Logout</button>
                             </form>
@@ -188,6 +187,17 @@
                                 <div class="col-6 d-flex justify-content-center">
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         <span class="alert-text"><strong></strong><%=messages.success%></span>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <%}%>
+                                <%if(messages.error) {%>
+                                <small></small>
+                                <div class="col-6 d-flex justify-content-center">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <span class="alert-text"><strong></strong><%=messages.error%></span>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -405,7 +415,7 @@
                                             <div class="form-group">
                                                 <label class="form-control-label" for="vphone">Phone
                                                         No.</label>
-                                                <input type="text" id="vphone" name="phoneNumber" class="form-control" placeholder="1234567890" required>
+                                                <input type="number" id="vphone" name="phoneNumber" class="form-control" placeholder="1234567890" required>
                                             </div>
                                         </div>
                                     </div>

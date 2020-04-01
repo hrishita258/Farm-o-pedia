@@ -18,6 +18,7 @@ const port = process.env.APP_PORT
 
 app.set('view engine', 'ejs')
 app.use(cors())
+app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
