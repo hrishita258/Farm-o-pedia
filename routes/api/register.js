@@ -12,10 +12,10 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     // let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password } = req.body
     // custom objects
-    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, rlatitude, rlongitude, qlatitude, qlongitude, troute, tdate, password } = req.body
-    let registrationLocation = { latitude: rlatitude, longitude: rlongitude }
-    let quarantineLocation = { latitude: qlatitude, longitude: qlongitude }
-    let travelHistory = { route: troute, date: tdate }
+    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, latitude, longitude, travel, date, password } = req.body
+    let registrationLocation = { latitude, longitude }
+    let quarantineLocation = { latitude, longitude }
+    let travelHistory = { route: travel, date }
     // end
     if (password && password.length < 6) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Password length should be more than 6' })
     bcrypt.genSalt(10, (err, salt) => {
