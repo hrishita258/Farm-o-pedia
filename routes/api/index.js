@@ -19,5 +19,6 @@ router.use('/upload', require('./upload'))
 router.use('/outofarea', require('./outOfArea'))
 router.use('/changepassword', require('./changePassword'))
 router.use('/endquarantine', require('./endQuarantine'))
+router.use('/changequarantinelocation', require('./changeQuarantineLocation'))
 
 module.exports = router

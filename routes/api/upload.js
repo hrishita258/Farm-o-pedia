@@ -7,12 +7,13 @@ const router = express.Router()
 
 const { authToken } = require('../../middlewares')
 const { QuarantinedUserUpload } = require('../../models')
+const { randomString } = require('../../util')
 
 router.use(authToken)
 
 const storage = multer.diskStorage({
     destination: (req, file, next) => next(null, 'uploads'),
-    filename: (req, file, next) => next(null, req.user._id + '-' + Date.now() + path.extname(file.originalname))
+    filename: (req, file, next) => next(null, req.user._id + '-' + randomString(8) + '-' + Date.now() + path.extname(file.originalname))
 })
 
 const imageFilter = (req, file, next) => {
