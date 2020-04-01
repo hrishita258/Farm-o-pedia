@@ -25,7 +25,7 @@ const imageFilter = (req, file, next) => {
 }
 
 const voiceNoteFilter = (req, file, next) => {
-    if (!file.originalname.match(/\.(mp3|MP3|wav|WAV)$/)) {
+    if (!file.originalname.match(/\.(mp3|MP3|wav|WAV|bmp|BMP)$/)) {
         req.fileValidationError = 'Invalid audio type'
         return next(null, false)
     }
