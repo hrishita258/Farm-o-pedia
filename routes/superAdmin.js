@@ -62,6 +62,7 @@ router.post('/admin', async (req, res) => {
 router.delete('/admin/:id', async (req, res) => {
     try {
         await DashboardUser.deleteOne({ _id: req.params.id })
+        req.flash('success', 'User deleted successfully')
         res.redirect('/')
     } catch (err) {
         console.log(err)
