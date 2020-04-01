@@ -43,6 +43,8 @@ router.get('/patient/:id', async (req, res) => {
 
 router.post('/patient', (req, res) => {
     let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, route, date, latitude, longitude } = req.body
+    nationality = 'india'
+    currentStatus = 'quarantined'
     let travelHistory = { route, date }
     let password = randomString(8)
     // TODO send random generated password and remove the below line
@@ -68,15 +70,12 @@ router.post('/patient', (req, res) => {
                 // if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedusers index: phoneNumber1')) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Phone Number already registered' })
                 // if (err.message) if (err.message.includes('QuarantinedUser validation failed')) return res.status(400).json({ status: 400, statusCode: 'failed', message: err.message })
                 if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedusers index: phoneNumber1')) {
-                    req.flash('error', 'Phone Number already registered')
-                    return res.redirect('/')
+                    return res.status(400).json({ status: 400, message: 'Phone Number already exists' })
                 }
                 if (err.message) if (err.message.includes('QuarantinedUser validation failed')) {
-                    req.flash('error', err.message)
-                    return res.redirect('/')
+                    return res.status(400).json({ status: 400, message: err.message })
                 }
-                req.flash('Something went wrong')
-                res.redirect('/')
+                res.status(500).json({ status: 500, message: 'Something went wrong' })
                 console.log(err)
             }
         })

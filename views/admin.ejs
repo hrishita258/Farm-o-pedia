@@ -287,22 +287,22 @@
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-username">Phone
                                                         No. 2</label>
-                                                <input type="text" id="input-username" name="phoneNumber2" class="form-control" placeholder="1234567890" required>
+                                                <input type="text" pattern="[0-9]{10}" id="input-username" name="phoneNumber2" class="form-control" placeholder="1234567890" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <!-- <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-email">Email
                                                         address</label>
                                                 <input type="email" id="input-email" name="email" class="form-control" placeholder="example@example.com" required>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-age">Age</label>
-                                                <input type="email" id="age" name="age" class="form-control" placeholder="example@example.com" required>
+                                                <input type="number" id="age" name="age" class="form-control" placeholder="example@example.com" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -326,19 +326,19 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-block">State</label>
-                                                <input type="text" id="input-block" class="form-control" name="state" placeholder="Rajasthan" required>
+                                                <input type="text" id="input-block" class="form-control" name="detectedState" placeholder="Rajasthan" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-postal-code">City</label>
-                                                <input type="text" id="input-postal-code" name="city" class="form-control" placeholder="Udaipur" required>
+                                                <input type="text" id="input-postal-code" name="detectedCity" class="form-control" placeholder="Udaipur" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-postal-code">Block</label>
-                                                <input type="text" id="input-postal-code" name="city" class="form-control" placeholder="Udaipur" required>
+                                                <input type="text" id="input-postal-code" name="block" class="form-control" placeholder="Udaipur" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -352,7 +352,20 @@
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-postal-code">Full
                                                         address</label>
-                                                <input type="text" id="input-postal-code" name="city" class="form-control" placeholder="sec 4 Udaipur Rajasthan india" required>
+                                                <input type="text" id="input-postal-code" name="address" class="form-control" placeholder="sec 4 Udaipur Rajasthan india" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-postal-code">Travel Route</label>
+                                                <input type="text" id="input-postal-code" name="route" class="form-control" placeholder="Udaipur" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-postal-code">Travel Date</label>
+                                                <input type="date" id="input-postal-code" name="date" class="form-control" placeholder="17/3/2020"
+                                                    required>
                                             </div>
                                         </div>
 
@@ -394,27 +407,36 @@
 
         // serialize the form data
         $("form").on("submit", function(event) {
+            event.preventDefault();
             var postdata;
+            var data = {}
+            postdata = $(this).serializeArray();
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-                event.preventDefault();
-                postdata = $(this).serializeArray();
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    data.latitude = position.coords.latitude
+                    data.longitude = position.coords.longitude
+                    postdata.forEach(d => {
+                        data[d.name] = d.value
+                    })
+                    console.log(data)
+                    fetch('/admin/patient', {
+                        method: 'POST',
+                        headers: {
+                            "Content-type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    }).then(res => res.json()).then(json => {
+                        alert(json.message)
+                        location.reload()
+                    }).catch(err => alert(err.message))
+                });
             } else {
                 alert("please switch to chrome")
             }
-
             function showPosition(position) {
-                postdata.geolocation = position.coords.longitude
+                data.latitude = position.coords.latitude
+                data.longitude = position.coords.longitude
             }
-            $.ajax({
-                type: "POST",
-                url: "#",
-                data: postdata,
-            }).done(function(data) {
-                // Optionally alert the user of success here...
-            }).fail(function(data) {
-                // Optionally alert the user of an error here...
-            });
         });
     </script>
 </body>
