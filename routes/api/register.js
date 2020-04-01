@@ -29,6 +29,7 @@ router.post('/', async (req, res) => {
                 return res.status(500).json({ status: 500, statusCode: 'failed', error: err })
             }
             try {
+                console.log(name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, hash)
                 const result = await QuarantinedUser.create({
                     name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash
                 })
