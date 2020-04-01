@@ -12,8 +12,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    if (!req.body.length) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'body must be an array of objects' })
-    for (let i = 0; i < req.body.length; i++) if (!req.body[i].latitude || !req.body[i].longitude || !req.body[i].date) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Each object must contain latitude, longitude and date fields' })
+    if (!req.body.path.length) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'body must be an array of objects' })
+    for (let i = 0; i < req.body.path.length; i++) if (!req.body.path[i].latitude || !req.body.path[i].longitude || !req.body.path[i].date) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Each object must contain latitude, longitude and date fields' })
     let date = new Date()
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
     let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
             }, {
                 $push: {
                     path: {
-                        $each: req.body
+                        $each: req.body.path
                     }
                 }
             })
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
         try {
             await userOutOfArea.create({
                 _quarantinedUserId: req.user._id,
-                path: [...req.body]
+                path: [...req.body.path]
             })
             res.status(201).json({ status: 201, statusCode: 'success', message: 'Location added successfully' })
         } catch (err) {

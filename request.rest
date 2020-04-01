@@ -50,7 +50,7 @@ x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 Content-Type: application/json
 
 {
-    "phoneNumber": "953007735",
+    "phoneNumber": "9530077351",
     "password": "SuperStrongPassword"
 }
 
@@ -125,8 +125,9 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODU1ODUyNDcsImR
 Content-Type: application/json
 
 {
-    "latitude": "23.4113",
-    "longitude": "23.4113"
+    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wicmVnaXN0cmF0aW9uTG9jYXRpb25cIjp7XCJsYXRpdHVkZVwiOjIzLjQ1MyxcImxvbmdpdHVkZVwiOjczLjY2ODMyfSxcInF1YXJhbnRpbmVMb2NhdGlvblwiOntcImxhdGl0dWRlXCI6MjMuNDQsXCJsb25naXR1ZGVcIjoxMzQuMTM0fSxcInRyYXZlbEhpc3RvcnlcIjp7XCJyb3V0ZVwiOlwiV29ybGQgVG91cvCfmJ1cIixcImRhdGVcIjpcIjIwMjAtMDMtMjhUMTQ6MDg6MDcuNTIzWlwifSxcIl9pZFwiOlwiNWU4MWUwMjNkMzE3ZjYwY2RjZDk3ZGU1XCIsXCJuYW1lMVwiOlwiRWthbnNoXCIsXCJuYW1lMlwiOlwiSmFpblwiLFwicGhvbmVOdW1iZXIxXCI6OTUzMDA3NzM1MSxcInBob25lTnVtYmVyMlwiOjg2MTk1NTIyNDksXCJhZ2VcIjoyMCxcImdlbmRlclwiOlwibWFsZVwiLFwiZGF0ZUFubm91bmNlZFwiOlwiMjAyMC0wMy0yOVQxNDowODowNy41MjNaXCIsXCJjdXJyZW50U3RhdHVzXCI6XCJxdWFyYW50aW5l8J-Yo1wiLFwiZGV0ZWN0ZWRDaXR5XCI6XCJ1ZGFpcHVyXCIsXCJibG9ja1wiOlwiZ2lyd2FcIixcImRldGVjdGVkU3RhdGVcIjpcInJhamFzdGhhblwiLFwibmF0aW9uYWxpdHlcIjpcIkRyZWFtIENvdW50cnnwn5iNXCIsXCJhZGRyZXNzXCI6XCJNeSBIb21lIFN3ZWV0IEhvbWXwn5KWXCIsXCJwYXNzd29yZFwiOlwiJDJhJDEwJHdReWFOTDlGay8vQy50VXBydmpTVnUyVi4yRWk0M2Q0NEJuOTZGMjg5Zmh6RFNTRGh6WmZXXCIsXCJjcmVhdGVkQXRcIjpcIjIwMjAtMDMtMzBUMTI6MDM6NDcuNDE4WlwiLFwidXBkYXRlZEF0XCI6XCIyMDIwLTA0LTAxVDEwOjE5OjMyLjU0OVpcIixcIl9fdlwiOjB9IiwiaWF0IjoxNTg1NzYzNzIwfQ.NxwhlygWCzC66yg5a6hyQi-VWuuelWesbUYjcLsYp_k",
+    "latitude": "23.415",
+    "longitude": "23.415"
 }
 
 
@@ -137,6 +138,7 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODU1ODUyNDcsImR
 Content-Type: application/json
 
 {
+    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wicmVnaXN0cmF0aW9uTG9jYXRpb25cIjp7XCJsYXRpdHVkZVwiOjIzLjQ1MyxcImxvbmdpdHVkZVwiOjczLjY2ODMyfSxcInF1YXJhbnRpbmVMb2NhdGlvblwiOntcImxhdGl0dWRlXCI6MjMuNDQsXCJsb25naXR1ZGVcIjoxMzQuMTM0fSxcInRyYXZlbEhpc3RvcnlcIjp7XCJyb3V0ZVwiOlwiV29ybGQgVG91cvCfmJ1cIixcImRhdGVcIjpcIjIwMjAtMDMtMjhUMTQ6MDg6MDcuNTIzWlwifSxcIl9pZFwiOlwiNWU4MWUwMjNkMzE3ZjYwY2RjZDk3ZGU1XCIsXCJuYW1lMVwiOlwiRWthbnNoXCIsXCJuYW1lMlwiOlwiSmFpblwiLFwicGhvbmVOdW1iZXIxXCI6OTUzMDA3NzM1MSxcInBob25lTnVtYmVyMlwiOjg2MTk1NTIyNDksXCJhZ2VcIjoyMCxcImdlbmRlclwiOlwibWFsZVwiLFwiZGF0ZUFubm91bmNlZFwiOlwiMjAyMC0wMy0yOVQxNDowODowNy41MjNaXCIsXCJjdXJyZW50U3RhdHVzXCI6XCJxdWFyYW50aW5l8J-Yo1wiLFwiZGV0ZWN0ZWRDaXR5XCI6XCJ1ZGFpcHVyXCIsXCJibG9ja1wiOlwiZ2lyd2FcIixcImRldGVjdGVkU3RhdGVcIjpcInJhamFzdGhhblwiLFwibmF0aW9uYWxpdHlcIjpcIkRyZWFtIENvdW50cnnwn5iNXCIsXCJhZGRyZXNzXCI6XCJNeSBIb21lIFN3ZWV0IEhvbWXwn5KWXCIsXCJwYXNzd29yZFwiOlwiJDJhJDEwJHdReWFOTDlGay8vQy50VXBydmpTVnUyVi4yRWk0M2Q0NEJuOTZGMjg5Zmh6RFNTRGh6WmZXXCIsXCJjcmVhdGVkQXRcIjpcIjIwMjAtMDMtMzBUMTI6MDM6NDcuNDE4WlwiLFwidXBkYXRlZEF0XCI6XCIyMDIwLTA0LTAxVDEwOjE5OjMyLjU0OVpcIixcIl9fdlwiOjB9IiwiaWF0IjoxNTg1NzYzNzIwfQ.NxwhlygWCzC66yg5a6hyQi-VWuuelWesbUYjcLsYp_k",
     "text": "What a cruel world❗"
 }
 
@@ -169,18 +171,21 @@ x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wicmVnaXN0cmF0aW9uTG9jYXRpb25cIjp7XCJsYXRpdHVkZVwiOjIzLjQ1MyxcImxvbmdpdHVkZVwiOjczLjY2ODMyfSxcInF1YXJhbnRpbmVMb2NhdGlvblwiOntcImxhdGl0dWRlXCI6MjUuNTY3ODIsXCJsb25naXR1ZGVcIjo3NS42MTMxfSxcInRyYXZlbEhpc3RvcnlcIjp7XCJyb3V0ZVwiOlwiV29ybGQgVG91cvCfmJ1cIixcImRhdGVcIjpcIjIwMjAtMDMtMjhUMTQ6MDg6MDcuNTIzWlwifSxcIl9pZFwiOlwiNWU4MWUwMjNkMzE3ZjYwY2RjZDk3ZGU1XCIsXCJuYW1lMVwiOlwiRWthbnNoXCIsXCJuYW1lMlwiOlwiSmFpblwiLFwicGhvbmVOdW1iZXIxXCI6OTUzMDA3NzM1MSxcInBob25lTnVtYmVyMlwiOjg2MTk1NTIyNDksXCJhZ2VcIjoyMCxcImdlbmRlclwiOlwibWFsZVwiLFwiZGF0ZUFubm91bmNlZFwiOlwiMjAyMC0wMy0yOVQxNDowODowNy41MjNaXCIsXCJjdXJyZW50U3RhdHVzXCI6XCJxdWFyYW50aW5l8J-Yo1wiLFwiZGV0ZWN0ZWRDaXR5XCI6XCJEcmVhbSBDaXR58J-MhlwiLFwiYmxvY2tcIjpcIkRyZWFtIEJsb2NrXCIsXCJkZXRlY3RlZFN0YXRlXCI6XCJEcmVhbSBTdGF0ZeKdpFwiLFwibmF0aW9uYWxpdHlcIjpcIkRyZWFtIENvdW50cnnwn5iNXCIsXCJhZGRyZXNzXCI6XCJNeSBIb21lIFN3ZWV0IEhvbWXwn5KWXCIsXCJwYXNzd29yZFwiOlwiJDJhJDEwJDBGTlRDRzBmMjRZWlZVTUtMQ2hGMnVoWk9mOW9sY054VkV5Q1c4NDlzMDd1TjdveVJReVRDXCIsXCJjcmVhdGVkQXRcIjpcIjIwMjAtMDMtMzBUMTI6MDM6NDcuNDE4WlwiLFwidXBkYXRlZEF0XCI6XCIyMDIwLTAzLTMwVDEyOjAzOjQ3LjQxOFpcIixcIl9fdlwiOjB9IiwiaWF0IjoxNTg1NTkwNDQyfQ.czMltlxmW9zR7r592yHYYABcexo6dup35vMaE1yyZT8
 Content-Type: application/json
 
-[
-    {
-        "latitude": "12.3123",
-        "longitude": "41.14413",
-        "date": "2020-03-30T18:41:32.877Z"
-    },
-    {
-        "latitude": "21.413",
-        "longitude": "43.5135",
-        "date": "2020-03-30T18:42:40.877Z"
-    }
-]
+{
+    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wicmVnaXN0cmF0aW9uTG9jYXRpb25cIjp7XCJsYXRpdHVkZVwiOjIzLjQ1MyxcImxvbmdpdHVkZVwiOjczLjY2ODMyfSxcInF1YXJhbnRpbmVMb2NhdGlvblwiOntcImxhdGl0dWRlXCI6MjMuNDQsXCJsb25naXR1ZGVcIjoxMzQuMTM0fSxcInRyYXZlbEhpc3RvcnlcIjp7XCJyb3V0ZVwiOlwiV29ybGQgVG91cvCfmJ1cIixcImRhdGVcIjpcIjIwMjAtMDMtMjhUMTQ6MDg6MDcuNTIzWlwifSxcIl9pZFwiOlwiNWU4MWUwMjNkMzE3ZjYwY2RjZDk3ZGU1XCIsXCJuYW1lMVwiOlwiRWthbnNoXCIsXCJuYW1lMlwiOlwiSmFpblwiLFwicGhvbmVOdW1iZXIxXCI6OTUzMDA3NzM1MSxcInBob25lTnVtYmVyMlwiOjg2MTk1NTIyNDksXCJhZ2VcIjoyMCxcImdlbmRlclwiOlwibWFsZVwiLFwiZGF0ZUFubm91bmNlZFwiOlwiMjAyMC0wMy0yOVQxNDowODowNy41MjNaXCIsXCJjdXJyZW50U3RhdHVzXCI6XCJxdWFyYW50aW5l8J-Yo1wiLFwiZGV0ZWN0ZWRDaXR5XCI6XCJ1ZGFpcHVyXCIsXCJibG9ja1wiOlwiZ2lyd2FcIixcImRldGVjdGVkU3RhdGVcIjpcInJhamFzdGhhblwiLFwibmF0aW9uYWxpdHlcIjpcIkRyZWFtIENvdW50cnnwn5iNXCIsXCJhZGRyZXNzXCI6XCJNeSBIb21lIFN3ZWV0IEhvbWXwn5KWXCIsXCJwYXNzd29yZFwiOlwiJDJhJDEwJHdReWFOTDlGay8vQy50VXBydmpTVnUyVi4yRWk0M2Q0NEJuOTZGMjg5Zmh6RFNTRGh6WmZXXCIsXCJjcmVhdGVkQXRcIjpcIjIwMjAtMDMtMzBUMTI6MDM6NDcuNDE4WlwiLFwidXBkYXRlZEF0XCI6XCIyMDIwLTA0LTAxVDEwOjE5OjMyLjU0OVpcIixcIl9fdlwiOjB9IiwiaWF0IjoxNTg1NzYzNzIwfQ.NxwhlygWCzC66yg5a6hyQi-VWuuelWesbUYjcLsYp_k",
+    "path": [
+        {
+            "latitude": "23.3123",
+            "longitude": "41.14413",
+            "date": "2020-03-30T18:41:32.877Z"
+        },
+        {
+            "latitude": "76.413",
+            "longitude": "43.5135",
+            "date": "2020-03-30T18:42:40.877Z"
+        }
+    ]
+}
 
 
 
