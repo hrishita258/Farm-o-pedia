@@ -22,23 +22,13 @@ router.use('/endquarantine', require('./endQuarantine'))
 router.use('/changequarantinelocation', require('./changeQuarantineLocation'))
 // Temporary routes
 router.post('/temp', async (req, res) => {
-    const { QuarantinedUserUpload } = require('../../models')
-    if (!req.body.latitude || !req.body.longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
-    const quarantinedUserUpload = new QuarantinedUserUpload({
-        _quarantinedUserId: '5e81e023d317f60cdcd97de5',
-        uploadType: 'location',
-        location: {
-            latitude: req.body.latitude,
-            longitude: req.body.longitude
-        }
+    let { file } = req.body
+    let base64Image = file.split(';base64,').pop()
+    const fs = require('fs')
+    fs.writeFile('uploads/image.bmp', base64Image, { encoding: 'base64' }, function (err) {
+        console.log('File created')
     })
-    try {
-        await quarantinedUserUpload.save()
-        res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
-    } catch (err) {
-        console.log(err)
-        res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
-    }
+    res.send('Upload successfull')
 })
 
 module.exports = router
