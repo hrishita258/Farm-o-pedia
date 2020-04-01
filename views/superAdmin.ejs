@@ -217,12 +217,14 @@
                                             <td><span class="badge badge-primary"><%= user.block %></span></td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a onclick="viewAdmin('<%=user._id%>')" class="btn btn-primary btn-sm rounded-circle"><i
+                                                    <a onclick="viewAdmin('<%=user._id%>')" data-toggle="modal" data-target="#modal-form2" class="text-white btn btn-primary btn-sm rounded-circle"><i
                                                             class="fas fa-eye"></i></a>
-                                                    <a class="btn btn-dark btn-sm rounded-circle"><i
-                                                            class="fas fa-edit"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm rounded-circle"><i
-                                                            class="fas fa-trash"></i></a>
+
+                                                    <!-- add route plese  -->
+                                                    <form action="#<%=user._id%>">
+                                                        <button type="submit" class="btn btn-danger btn-sm rounded-circle">
+                                                            <i class="fas fa-trash"></i></button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
@@ -362,7 +364,7 @@
 
 
     <!-- view modal -->
-    <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal fade" id="modal-form2" tabindex="-1" role="dialog" aria-labelledby="modal-form2" aria-hidden="true">
         <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body p-0">
@@ -377,50 +379,50 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-first-name">Full
+                                                <label class="form-control-label" for="vname">Full
                                                         name</label>
-                                                <input type="text" id="input-first-name" name="name" class="form-control" placeholder="Bill Gates" required>
+                                                <input type="text" id="vname" name="name" class="form-control" placeholder="Bill Gates" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-phone">Phone
+                                                <label class="form-control-label" for="vphone">Phone
                                                         No.</label>
-                                                <input type="text" id="input-phone" name="phoneNumber" class="form-control" placeholder="1234567890" required>
+                                                <input type="text" id="vphone" name="phoneNumber" class="form-control" placeholder="1234567890" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-email">Email
+                                                <label class="form-control-label" for="vemail">Email
                                                         address</label>
-                                                <input type="email" id="input-email" name="email" class="form-control" placeholder="example@example.com" required>
+                                                <input type="email" id="vemail" name="email" class="form-control" placeholder="example@example.com" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <hr class="my-4">
                                 <!-- Address -->
-                                <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                                <h6 class="heading-small text-muted mb-4">address information</h6>
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-state">State</label>
-                                                <input type="text" id="input-state" class="form-control" name="state" placeholder="Rajasthan" required>
+                                                <label class="form-control-label" for="vstate">State</label>
+                                                <input type="text" id="vstate" class="form-control" name="state" placeholder="Rajasthan" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-postal-code">City</label>
-                                                <input type="text" id="input-city" name="city" class="form-control" placeholder="Udaipur" required>
+                                                <label class="form-control-label" for="vcity">City</label>
+                                                <input type="text" id="vcity" name="city" class="form-control" placeholder="Udaipur" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-city">Block</label>
-                                                <input type="text" id="input-block" class="form-control" placeholder="Girwa" name="block" required>
+                                                <label class="form-control-label" for="vblock">Block</label>
+                                                <input type="text" id="vblock" class="form-control" placeholder="Girwa" name="block" required>
                                             </div>
                                         </div>
                                     </div>
@@ -428,7 +430,7 @@
                                 <hr class="my-4 ">
                                 <!-- Description -->
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-dark my-4">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </form>
                         </div>
@@ -465,8 +467,18 @@
         });
 
         function viewAdmin(ID) {
-            console.log(ID)
-            fetch(`superadmin/admin/${ID}`).then(res => res.json()).then(json => console.log(json))
+            fetch(`superadmin/admin/${ID}`).then(res => res.json()).then(json => {
+                if (json.status == 200) {
+                    $('#vname').val(json.data.name)
+                    $('#vblock').val(json.data.block)
+                    $('#vcity').val(json.data.city)
+                    $('#vemail').val(json.data.email)
+                    $('#vphone').val(json.data.phoneNumber)
+                    $('#vstate').val(json.data.state)
+                } else {
+                    alert("please try again after some time");
+                }
+            })
         }
     </script>
 </body>
