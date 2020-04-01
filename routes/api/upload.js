@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 })
 
 const imageFilter = (req, file, next) => {
-    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG)$/)) {
+    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|dip|DIP)$/)) {
         req.fileValidationError = 'Invalid image type'
         return next(null, false)
     }
