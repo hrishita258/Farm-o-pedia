@@ -128,6 +128,7 @@ router.post('/image', async (req, res) => {
 
 router.post('/voicenote', async (req, res) => {
     let { file } = req.body
+    console.log(file)
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let fileName = `${req.user._id + '-' + randomString(8) + '-' + Date.now()}.3gp`
     fs.writeFile(`uploads/${fileName}`, file, async err => {
