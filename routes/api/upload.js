@@ -131,7 +131,7 @@ router.post('/voicenote', multer({ storage, fileFilter: voiceNoteFilter }).singl
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let base64Image = file.split(';base64,').pop()
     let fileName = `${req.user._id + '-' + randomString(8) + Date.now()}.3gp`
-    fs.writeFile(`uploads/${fileName}`, base64Image, { encoding: 'base64' }, function (err) {
+    fs.writeFile(`uploads/${fileName}`, base64Image, { encoding: 'base64' }, async err => {
         if (err) {
             console.log(err)
             return res.status(500).json({ status: 500, statusCode: 'failed', message: 'Something wenrt wrong', error: err })
