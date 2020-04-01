@@ -2,8 +2,10 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
 module.exports = async (req, res, next) => {
-    let token = req.headers['x-access-token']
-    if (!token) return res.status(403).json({ status: 403, statusCode: 'failed', message: 'Access Token is required in headers' })
+    // let token = req.headers['x-access-token']
+    let token = req.body.authorization
+    // if (!token) return res.status(403).json({ status: 403, statusCode: 'failed', message: 'Access Token is required in headers' })
+    if (!token) return res.status(403).json({ status: 403, statusCode: 'failed', message: 'Access Token is required in body' })
     let userData
     try {
         userData = await jwt.verify(token, process.env.JWT_ACCESS_TOKEN_SECRET)
