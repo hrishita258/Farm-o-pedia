@@ -30,7 +30,8 @@ router.post('/', async (req, res) => {
     //     _quarantinedUserId: user._id, refreshToken
     // })
     // res.json({ status: 200, statusCode: 'success', message: 'Login Successful', data: user, accessToken, refreshToken })
-    res.json({ status: 200, statusCode: 'success', message: 'Login Successful', data: user, accessToken })
+    // res.json({ status: 200, statusCode: 'success', message: 'Login Successful', data: user, accessToken })
+    res.send(accessToken)
 })
 
 module.exports = router
