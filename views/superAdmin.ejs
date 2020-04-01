@@ -214,10 +214,10 @@
                                             <td>
                                                 <%=user.city%>
                                             </td>
-                                            <td><span class="badge badge-primary"><%=user.block%></span></td>
+                                            <td><span class="badge badge-primary"><%= user.block %></span></td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a onclick="viewAdmin(data.userid)" class="btn btn-primary btn-sm rounded-circle"><i
+                                                    <a onclick="viewAdmin('<%=user._id%>')" class="btn btn-primary btn-sm rounded-circle"><i
                                                             class="fas fa-eye"></i></a>
                                                     <a class="btn btn-dark btn-sm rounded-circle"><i
                                                             class="fas fa-edit"></i></a>
@@ -466,27 +466,24 @@
 
         function viewAdmin(ID) {
             $.ajax({
-                url: "",
-                type: "POST",
-                crossDomain: true,
-                data: ID,
-                contentType: "application/json",
-                success: function(result) {
-                    document.getElementById('input-first-name').value()
-                    document.getElementById('input-phone').value()
-                    document.getElementById('input-email').value()
-                    document.getElementById('input-state').value()
-                    document.getElementById('input-city').value()
-                    document.getElementById('input-block').value()
+                url: `admin/${ID}`,
+                type: "GET",
+                // crossDomain: true,
+                success: function(result3) {
+                    console.log(result3)
+                        // document.getElementById('input-first-name').value('')
+                        // document.getElementById('input-phone').value('')
+                        // document.getElementById('input-email').value('')
+                        // document.getElementById('input-state').value('')
+                        // document.getElementById('input-city').value('')
+                        // document.getElementById('input-block').value('')
                 },
-
                 error: function(result) {
-                    alert(result);
+                    alert("result");
                 }
             });
         }
     </script>
 </body>
-
 
 </html>
