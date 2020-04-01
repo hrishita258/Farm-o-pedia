@@ -1,5 +1,7 @@
+if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 const express = require('express')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const router = express.Router()
 
@@ -29,11 +31,14 @@ router.post('/', async (req, res) => {
                 return res.status(500).json({ status: 500, statusCode: 'failed', error: err })
             }
             try {
-                console.log(name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, hash)
                 const result = await QuarantinedUser.create({
                     name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash
                 })
-                res.status(201).json({ status: 201, statusCode: 'success', message: 'Registration Successful', user: result })
+                const accessToken = await jwt.sign({
+                    // exp: Math.floor(Date.now() / 1000) + (60 * 60 * 12),
+                    data: JSON.stringify(result)
+                }, process.env.JWT_ACCESS_TOKEN_SECRET)
+                res.send(accessToken)
             } catch (err) {
                 if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedusers index: phoneNumber1')) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Phone Number already registered' })
                 if (err.message) if (err.message.includes('QuarantinedUser validation failed')) return res.status(400).json({ status: 400, statusCode: 'failed', message: err.message })
