@@ -46,16 +46,27 @@ router.post('/admin', async (req, res) => {
             block,
             role
         })
+        req.flash('success', 'User added successfully')
         res.redirect('/')
     } catch (err) {
         if (err.errmsg)
-            if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.dashboardusers index: phoneNumber')) return res.send('Phone Number already exists')
+            if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.dashboardusers index: phoneNumber')) {
+                req.flash('error', 'Phone Number already exists')
+                res.redirect('/')
+            }
         if (err.errmsg)
-            if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.dashboardusers index: email')) return res.send('Email already exists')
+            if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.dashboardusers index: email')) {
+                req.flash('error', 'Email already exists')
+                res.redirect('/')
+            }
         if (err.name)
-            if (err.name.includes('ValidationError')) return res.send('Validation Error must be a phone number')
+            if (err.name.includes('ValidationError')) {
+                req.flash('error', 'Validation Error must be a phone number')
+                return res.redirect('/')
+            }
         console.log(err)
-        res.status(500).send('Something Went Wrong')
+        req.flash('error', 'Something went wrong')
+        res.redirect('/')
     }
 })
 

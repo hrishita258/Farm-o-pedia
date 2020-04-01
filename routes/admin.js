@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 const router = express.Router()
 
 const { checUserAdmin } = require('../middlewares')
-const { QuarantinedUser } = require('../models')
+const { QuarantinedUser, QuarantinedUserUpload, userOutOfArea } = require('../models')
 const { randomString } = require('../util')
 
 router.use(checUserAdmin)
@@ -18,12 +18,22 @@ router.get('/', async (req, res) => {
     res.render('admin', { users: foundUsers })
 })
 
+router.get('/notification', (req, res) => {
+    res.redirect('/')
+    // res.render('notification')
+})
+
 router.get('/patient/:id', async (req, res) => {
     try {
-        const foundPatient = await QuarantinedUser.find({
+        const foundPatient = await QuarantinedUser.findOne({
             _id: req.params.id
         })
         if (!foundPatient) return res.redirect('/')
+        console.log(foundPatient)
+        const foundPatientUpload = await QuarantinedUserUpload.find({ _quarantinedUserId: foundPatient._id }).sort({ createdAt: 1 })
+        console.log(foundPatientUpload)
+        const foundUserOutOfAreas = await userOutOfArea.find({ _quarantinedUserId: foundPatient._id }).sort({ createdAt: 1 })
+        console.log(foundUserOutOfAreas)
         res.render('Patient', { user: foundPatient })
     } catch (err) {
         console.log(err)
@@ -32,7 +42,8 @@ router.get('/patient/:id', async (req, res) => {
 })
 
 router.post('/patient', (req, res) => {
-    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, travelHistory, latitude, longitude } = req.body
+    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, route, date, latitude, longitude } = req.body
+    let travelHistory = { route, date }
     let password = randomString(8)
     // TODO send random generated password and remove the below line
     password = 'password'
@@ -54,9 +65,18 @@ router.post('/patient', (req, res) => {
                 })
                 res.status(201).json({ status: 201, statusCode: 'success', message: 'Registration Successful', user: result })
             } catch (err) {
-                if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedusers index: phoneNumber1')) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Phone Number already registered' })
-                if (err.message) if (err.message.includes('QuarantinedUser validation failed')) return res.status(400).json({ status: 400, statusCode: 'failed', message: err.message })
-                res.status(500).json({ status: 500, statusCode: 'failed', message: 'Something went wrong', error: err })
+                // if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedusers index: phoneNumber1')) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Phone Number already registered' })
+                // if (err.message) if (err.message.includes('QuarantinedUser validation failed')) return res.status(400).json({ status: 400, statusCode: 'failed', message: err.message })
+                if (err.errmsg) if (err.errmsg.includes('E11000 duplicate key error collection: quarguard.quarantinedusers index: phoneNumber1')) {
+                    req.flash('error', 'Phone Number already registered')
+                    return res.redirect('/')
+                }
+                if (err.message) if (err.message.includes('QuarantinedUser validation failed')) {
+                    req.flash('error', err.message)
+                    return res.redirect('/')
+                }
+                req.flash('Something went wrong')
+                res.redirect('/')
                 console.log(err)
             }
         })
