@@ -50,7 +50,7 @@ x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
 Content-Type: application/json
 
 {
-    "phoneNumber": "9530077351",
+    "phoneNumber": "953007735",
     "password": "SuperStrongPassword"
 }
 
@@ -102,6 +102,18 @@ Content-Type: application/json
 {
     "oldPassword": "SuperStrongPassword",
     "newPassword": "SuperStrongPassword"
+}
+
+
+### Change quarantine location
+POST http://localhost:5000/api/v1/changequarantinelocation
+x-api-key: YOQsrDcvgT0uNb71D5s4bIM1uQWRNJuscGqq9D9OJS9ONIb1qNPsAL4p9F4XrWQr
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wicmVnaXN0cmF0aW9uTG9jYXRpb25cIjp7XCJsYXRpdHVkZVwiOjIzLjQ1MyxcImxvbmdpdHVkZVwiOjczLjY2ODMyfSxcInF1YXJhbnRpbmVMb2NhdGlvblwiOntcImxhdGl0dWRlXCI6MCxcImxvbmdpdHVkZVwiOjB9LFwidHJhdmVsSGlzdG9yeVwiOntcInJvdXRlXCI6XCJXb3JsZCBUb3Vy8J-YnVwiLFwiZGF0ZVwiOlwiMjAyMC0wMy0yOFQxNDowODowNy41MjNaXCJ9LFwiX2lkXCI6XCI1ZTg0NmE2YjFjOWQ0NDAwMDBlODBkYzRcIixcIm5hbWUxXCI6XCJFa2Fuc2hcIixcIm5hbWUyXCI6XCJKYWluXCIsXCJwaG9uZU51bWJlcjFcIjo5NTMwMDc3MzUsXCJwaG9uZU51bWJlcjJcIjo4NjE5NTUyMjQ5LFwiYWdlXCI6MjAsXCJnZW5kZXJcIjpcIm1hbGVcIixcImRhdGVBbm5vdW5jZWRcIjpcIjIwMjAtMDMtMjlUMTQ6MDg6MDcuNTIzWlwiLFwiY3VycmVudFN0YXR1c1wiOlwicXVhcmFudGluZfCfmKNcIixcImRldGVjdGVkQ2l0eVwiOlwidWRhaXB1clwiLFwiYmxvY2tcIjpcImdpcndhXCIsXCJkZXRlY3RlZFN0YXRlXCI6XCJyYWphc3RoYW5cIixcIm5hdGlvbmFsaXR5XCI6XCJEcmVhbSBDb3VudHJ58J-YjVwiLFwiYWRkcmVzc1wiOlwiTXkgSG9tZSBTd2VldCBIb21l8J-SllwiLFwicGFzc3dvcmRcIjpcIiQyYSQxMCR3UXlhTkw5RmsvL0MudFVwcnZqU1Z1MlYuMkVpNDNkNDRCbjk2RjI4OWZoekRTU0RoelpmV1wiLFwiY3JlYXRlZEF0XCI6XCIyMDIwLTAzLTMwVDEyOjAzOjQ3LjQxOFpcIixcInVwZGF0ZWRBdFwiOlwiMjAyMC0wMy0zMVQwOToxNTozMC40MTVaXCIsXCJfX3ZcIjowfSIsImlhdCI6MTU4NTczNjU0OX0.sdwoM4x8UhQ2Eb62P0FF2AbFT9Cc1n5QHrCDxXII-HM
+Content-Type: application/json
+
+{
+    "latitude": "23.44",
+    "longitude": "134.134"
 }
 
 
