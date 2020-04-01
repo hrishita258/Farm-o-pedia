@@ -102,6 +102,7 @@ router.post('/text', async (req, res) => {
 // })
 
 router.post('/image', async (req, res) => {
+    console.log(req.body.file)
     let { file } = req.body
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let base64Image = file.split(';base64,').pop()
