@@ -68,6 +68,7 @@ router.post('/text', async (req, res) => {
 })
 
 router.post('/image', multer({ storage, fileFilter: imageFilter }).single('file'), async (req, res) => {
+    console.log(req.file)
     if (!req.file) return res.status(400).json({ status: 400, statusCode: 400, message: 'Please upload a file' })
     if (req.fileValidationError) return res.status(400).json({ status: 400, statusCode: 'failed', message: req.fileValidationError })
     const quarantinedUserUpload = new QuarantinedUserUpload({
