@@ -22,11 +22,11 @@ router.get('/patient/:id', async (req, res) => {
         const foundPatient = await QuarantinedUser.find({
             _id: req.params.id
         })
-        if (!foundPatient) return res.status(404).json({ status: 404, message: 'Not Found' })
-        res.json({ status: 200, data: foundPatient })
+        if (!foundPatient) return res.redirect('/')
+        res.render('Patient', { user: foundPatient })
     } catch (err) {
         console.log(err)
-        res.send(err)
+        res.redirect('/')
     }
 })
 
