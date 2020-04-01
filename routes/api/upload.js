@@ -101,11 +101,11 @@ router.post('/text', async (req, res) => {
 //     }
 // })
 
-router.post('/image', multer({ storage, fileFilter: imageFilter }).single('file'), async (req, res) => {
+router.post('/image', async (req, res) => {
     let { file } = req.body
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let base64Image = file.split(';base64,').pop()
-    let fileName = `${req.user._id + '-' + randomString(8) + Date.now()}.bmp`
+    let fileName = `${req.user._id + '-' + randomString(8) + '-' + Date.now()}.bmp`
     fs.writeFile(`uploads/${fileName}`, base64Image, { encoding: 'base64' }, async err => {
         if (err) {
             console.log(err)
@@ -126,11 +126,12 @@ router.post('/image', multer({ storage, fileFilter: imageFilter }).single('file'
     })
 })
 
-router.post('/voicenote', multer({ storage, fileFilter: voiceNoteFilter }).single('file'), async (req, res) => {
+router.post('/voicenote', async (req, res) => {
+    console.log(req.body.file)
     let { file } = req.body
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let base64Image = file.split(';base64,').pop()
-    let fileName = `${req.user._id + '-' + randomString(8) + Date.now()}.3gp`
+    let fileName = `${req.user._id + '-' + randomString(8) + '-' + Date.now()}.3gp`
     fs.writeFile(`uploads/${fileName}`, base64Image, { encoding: 'base64' }, async err => {
         if (err) {
             console.log(err)
