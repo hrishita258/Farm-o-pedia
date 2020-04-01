@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 })
 
 const imageFilter = (req, file, next) => {
-    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|dip|DIP)$/)) {
+    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|bmp|BMP|dip|DIP)$/)) {
         req.fileValidationError = 'Invalid image type'
         return next(null, false)
     }
@@ -25,7 +25,7 @@ const imageFilter = (req, file, next) => {
 }
 
 const voiceNoteFilter = (req, file, next) => {
-    if (!file.originalname.match(/\.(mp3|MP3|wav|WAV|bmp|BMP)$/)) {
+    if (!file.originalname.match(/\.(mp3|MP3|wav|WAV)$/)) {
         req.fileValidationError = 'Invalid audio type'
         return next(null, false)
     }
