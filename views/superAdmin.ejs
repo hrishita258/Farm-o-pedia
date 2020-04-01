@@ -465,23 +465,8 @@
         });
 
         function viewAdmin(ID) {
-            $.ajax({
-                url: `admin/${ID}`,
-                type: "GET",
-                // crossDomain: true,
-                success: function(result3) {
-                    console.log(result3)
-                        // document.getElementById('input-first-name').value('')
-                        // document.getElementById('input-phone').value('')
-                        // document.getElementById('input-email').value('')
-                        // document.getElementById('input-state').value('')
-                        // document.getElementById('input-city').value('')
-                        // document.getElementById('input-block').value('')
-                },
-                error: function(result) {
-                    alert("result");
-                }
-            });
+            console.log(ID)
+            fetch(`superadmin/admin/${ID}`).then(res => res.json()).then(json => console.log(json))
         }
     </script>
 </body>
