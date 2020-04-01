@@ -79,10 +79,10 @@
                             </a>
                         </div>
                         <div class="col-6 collapse-close">
-                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
-                                    <span></span>
-                                    <span></span>
-                                </button>
+                            <form action="/logout" method="POST" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <button type="submit">Logout</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -146,10 +146,14 @@
                                 <h6 class="text-overflow m-0">Stay Safe</h6>
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a href="#!" class="dropdown-item">
+                            <form action="/logout" method="POST" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <button type="submit">Logout</button>
+                            </form>
+                            <!-- <a href="#!" class="dropdown-item">
                                 <i class="ni ni-user-run"></i>
                                 <span>Logout</span>
-                            </a>
+                            </a> -->
                         </div>
                     </li>
                 </ul>
