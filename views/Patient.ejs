@@ -64,7 +64,7 @@
                         <div class="dropdown-divider"></div>
                         <form action="/logout" method="POST">
                             <button class="dropdown-item" type="submit"><i class="ni ni-user-run"></i>
-                                Logout</button>
+                                    Logout</button>
                         </form>
                     </div>
                 </li>
@@ -154,7 +154,7 @@
                             <div class="dropdown-divider"></div>
                             <form action="/logout" method="POST">
                                 <button class="dropdown-item" type="submit"><i class="ni ni-user-run"></i>
-                                    Logout</button>
+                                        Logout</button>
                             </form>
                         </div>
                     </li>
@@ -206,12 +206,12 @@
                                                 </audio></td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a href="#" data-toggle="modal" onclick="showImage(<%=JSON.stringify(upl.images)%>)" data-target="#exampleModal3"
-                                                        class="btn btn-primary btn-sm rounded-circle"><i class="fas fa-eye"></i></a>
+                                                    <a href="#" data-toggle="modal" onclick="showImage(<%=JSON.stringify(upl.images)%>)" data-target="#exampleModal3" class="btn btn-primary btn-sm rounded-circle"><i
+                                                            class="fas fa-eye"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
-                                    <%})%>
+                                        <%})%>
                                 </tbody>
                             </table>
                         </div>
@@ -225,7 +225,7 @@
                     <div class="row align-items-center justify-content-xl-between">
                         <div class="col-xl-6">
                             <div class="copyright text-center text-xl-left text-muted">
-                                © 2020 <a href="/admin/map?latitude=23.321&longitude=21.2414" class="font-weight-bold ml-1" target="_blank">Amigos</a>
+                                © 2020 <a class="font-weight-bold ml-1" target="_blank">Amigos</a>
                             </div>
                         </div>
                     </div>
@@ -340,12 +340,7 @@
                         </button>
                 </div>
                 <div class="modal-body">
-                    <div class="d-flex">
-                        <img class="mr-3 h-50" src="https://www.w3schools.com/w3images/wedding.jpg">
-
-                        <img class="mr-3 h-50" src="https://www.w3schools.com/w3images/wedding.jpg">
-
-                        <img class="mr-3 h-50" src="https://www.w3schools.com/w3images/wedding.jpg">
+                    <div id="imageModal" class="d-flex">
 
                     </div>
                     <div class="modal-footer">
@@ -400,9 +395,11 @@
                     });
                 });
             });
+
             function showLocation(data) {
                 data.forEach(d => {
                     console.log(d)
+
                     $('#cd-timeline').empty()
                     $('#cd-timeline').append(` <div class="cd-timeline-block">
                             <div class="cd-timeline-img cd-location">
@@ -410,10 +407,10 @@
                             </div>
                             <!-- cd-timeline-img -->
                             <div class="cd-timeline-content">
-                                <h2>Reason</h2>
+                                <a href="/admin/map?latitude=${d.latitude}&longitude=${d.longitude}">Show on map</a>
                                 <p>reason will populate if the user gives.
                                 </p>
-                                <span class="cd-date">${upload.date}</span>
+                                <span class="cd-date">out of Quarantine on : - ${d.timestamp}</span>
                             </div>
                             <!-- cd-timeline-content -->
                         </div>`)
@@ -421,7 +418,11 @@
             }
 
             function showImage(data) {
-                console.log(data)
+                $("#imageModal").empty()
+                data.forEach(d => {
+                    console.log(d);
+                    $("#imageModal").append(`<img class="mr-3 h-50" src="${d.url}">`)
+                })
             }
         </script>
 </body>
