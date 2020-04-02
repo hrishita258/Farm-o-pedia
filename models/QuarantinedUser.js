@@ -89,6 +89,9 @@ const QuarantinedUserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    fever: Number,
+    cough: Number,
+    breathing: Number,
     quarantineEndAt: Date
 }, {
     timestamps: true

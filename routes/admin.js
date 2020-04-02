@@ -41,7 +41,7 @@ router.get('/patient/:id', async (req, res) => {
 })
 
 router.post('/patient', (req, res) => {
-    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, route, date, latitude, longitude } = req.body
+    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, route, date, latitude, longitude, fever, cough, breathing } = req.body
     nationality = 'india'
     currentStatus = 'quarantined'
     let travelHistory = { route, date }
@@ -62,7 +62,7 @@ router.post('/patient', (req, res) => {
             }
             try {
                 const result = await QuarantinedUser.create({
-                    name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash
+                    name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash, fever, cough, breathing
                 })
                 res.status(201).json({ status: 201, statusCode: 'success', message: 'Registration Successful', user: result })
             } catch (err) {

@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     // let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password } = req.body
     // custom objects
-    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, latitude, longitude, travel, date, password } = req.body
+    let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, latitude, longitude, travel, date, password, fever, cough, breathing } = req.body
     let registrationLocation = { latitude, longitude }
     let quarantineLocation = { latitude, longitude }
     let travelHistory = { route: travel, date }
@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
             }
             try {
                 const result = await QuarantinedUser.create({
-                    name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash
+                    name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, registrationLocation, quarantineLocation, travelHistory, password: hash, fever, cough, breathing
                 })
                 const accessToken = await jwt.sign({
                     // exp: Math.floor(Date.now() / 1000) + (60 * 60 * 12),
