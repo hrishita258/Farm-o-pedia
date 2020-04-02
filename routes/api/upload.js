@@ -35,8 +35,9 @@ const voiceNoteFilter = (req, file, next) => {
 router.post('/location', async (req, res) => {
     if (!req.body.latitude || !req.body.longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
     let { latitude, longitude } = req.body
+    let d = new Date()
     let location = {
-        latitude, longitude, date: new Date()
+        latitude, longitude, data: d
     }
     let date = new Date()
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
@@ -93,7 +94,8 @@ router.post('/location', async (req, res) => {
 
 router.post('/text', async (req, res) => {
     if (!req.body.text) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'text is required' })
-    let text = { text: req.body.text, date: new Date() }
+    let d = new Date()
+    let text = { text: req.body.text, data: d }
     let date = new Date()
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
     let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
@@ -180,6 +182,7 @@ router.post('/text', async (req, res) => {
 
 router.post('/image', async (req, res) => {
     let { file } = req.body
+    let d = new Date()
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let base64Image = file.split(';base64,').pop()
     let fileName = `${req.user._id + '-' + randomString(8) + '-' + Date.now()}.bmp`
@@ -190,7 +193,7 @@ router.post('/image', async (req, res) => {
         }
         let obj = {
             url: fileName,
-            date: new Date()
+            date: d
         }
         let date = new Date()
         let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)

@@ -12,7 +12,8 @@ const QuarantinedUserUploadSchema = new mongoose.Schema({
             },
             longitude: {
                 type: Number,
-            }
+            },
+            date: Date
         }
     ],
     images: [{
