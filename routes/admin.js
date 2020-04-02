@@ -29,12 +29,12 @@ router.get('/patient/:id', async (req, res) => {
             _id: req.params.id
         })
         if (!foundPatient) return res.redirect('/')
-        console.log(foundPatient)
+        // console.log(foundPatient)
         const foundPatientUpload = await QuarantinedUserUpload.find({ _quarantinedUserId: foundPatient._id }).sort({ createdAt: 1 })
-        console.log(foundPatientUpload)
+        // console.log(foundPatientUpload)
         const foundUserOutOfAreas = await userOutOfArea.find({ _quarantinedUserId: foundPatient._id }).sort({ createdAt: 1 })
-        console.log(foundUserOutOfAreas)
-        res.render('Patient', { user: foundPatient })
+        // console.log(foundUserOutOfAreas)
+        res.render('Patient', { user: foundPatient, upload: foundPatientUpload, userOutOfArea: foundUserOutOfAreas })
     } catch (err) {
         console.log(err)
         res.redirect('/')
