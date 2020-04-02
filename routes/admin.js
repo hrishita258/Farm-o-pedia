@@ -82,4 +82,11 @@ router.post('/patient', (req, res) => {
     })
 })
 
+router.get('/map', (req, res) => {
+    latitude = req.query.latitude
+    longitude = req.query.longitude
+    if (!latitude || !longitude) res.redirect('/')
+    res.render('map', { latitude, longitude })
+})
+
 module.exports = router
