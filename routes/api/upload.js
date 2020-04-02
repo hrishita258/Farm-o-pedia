@@ -34,37 +34,114 @@ const voiceNoteFilter = (req, file, next) => {
 
 router.post('/location', async (req, res) => {
     if (!req.body.latitude || !req.body.longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
-    const quarantinedUserUpload = new QuarantinedUserUpload({
+    let { latitude, longitude } = req.body
+    let location = {
+        latitude, longitude
+    }
+    let date = new Date()
+    let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
+    let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
+    const result = await QuarantinedUserUpload.findOne({
         _quarantinedUserId: req.user._id,
-        uploadType: 'location',
-        location: {
-            latitude: req.body.latitude,
-            longitude: req.body.longitude
+        createdAt: {
+            $gte: date1,
+            $lt: date2
         }
     })
-    try {
-        await quarantinedUserUpload.save()
-        res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
-    } catch (err) {
-        console.log(err)
-        res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+    if (result) {
+        try {
+            await QuarantinedUserUpload.updateOne({
+                _id: result._id
+            }, {
+                $push: {
+                    locations: location
+                }
+            })
+            res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+        } catch (err) {
+            console.log(err)
+            res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+        }
+    } else {
+        try {
+            await QuarantinedUserUpload.create({
+                _quarantinedUserId: req.user._id,
+                locations: [location]
+            })
+            res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+        } catch (err) {
+            console.log(err)
+            res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+        }
     }
+    // const quarantinedUserUpload = new QuarantinedUserUpload({
+    //     _quarantinedUserId: req.user._id,
+    //     uploadType: 'location',
+    //     location: {
+    //         latitude: req.body.latitude,
+    //         longitude: req.body.longitude
+    //     }
+    // })
+    // try {
+    //     await quarantinedUserUpload.save()
+    //     res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+    // } catch (err) {
+    //     console.log(err)
+    //     res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+    // }
 })
 
 router.post('/text', async (req, res) => {
     if (!req.body.text) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'text is required' })
-    const quarantinedUserUpload = new QuarantinedUserUpload({
+    let text = { text: req.body.text }
+    let date = new Date()
+    let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
+    let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
+    const result = await QuarantinedUserUpload.findOne({
         _quarantinedUserId: req.user._id,
-        uploadType: 'text',
-        text: req.body.text
+        createdAt: {
+            $gte: date1,
+            $lt: date2
+        }
     })
-    try {
-        await quarantinedUserUpload.save()
-        res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
-    } catch (err) {
-        console.log(err)
-        res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+    if (result) {
+        try {
+            await QuarantinedUserUpload.updateOne({
+                _id: result._id
+            }, {
+                $push: {
+                    texts: text
+                }
+            })
+            res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+        } catch (err) {
+            console.log(err)
+            res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+        }
+    } else {
+        try {
+            await QuarantinedUserUpload.create({
+                _quarantinedUserId: req.user._id,
+                texts: [text]
+            })
+            res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+        } catch (err) {
+            console.log(err)
+            res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+        }
     }
+    // const quarantinedUserUpload = new QuarantinedUserUpload({
+    //     _quarantinedUserId: req.user._id,
+    //     uploadType: 'text',
+    //     text: req.body.text
+    // })
+    // try {
+    //     await quarantinedUserUpload.save()
+    //     res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+    // } catch (err) {
+    //     console.log(err)
+    //     res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+    // }
 })
 
 // router.post('/image', multer({ storage, fileFilter: imageFilter }).single('file'), async (req, res) => {
@@ -111,22 +188,60 @@ router.post('/image', async (req, res) => {
             console.log(err)
             return res.status(500).json({ status: 500, statusCode: 'failed', message: 'Something wenrt wrong', error: err })
         }
-        const quarantinedUserUpload = new QuarantinedUserUpload({
-            _quarantinedUserId: req.user._id,
-            uploadType: 'image',
-            image: fileName
-        })
-        try {
-            await quarantinedUserUpload.save()
-            res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
-        } catch (err) {
-            console.log(err)
-            res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+        let obj = {
+            url: fileName
         }
+        let date = new Date()
+        let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
+        let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
+        const result = await QuarantinedUserUpload.findOne({
+            _quarantinedUserId: req.user._id,
+            createdAt: {
+                $gte: date1,
+                $lt: date2
+            }
+        })
+        if (result) {
+            try {
+                await QuarantinedUserUpload.updateOne({ _id: result._id }, {
+                    $push: {
+                        images: obj
+                    }
+                })
+                res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+            } catch (err) {
+                console.log(err)
+                res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+            }
+        } else {
+            try {
+                await QuarantinedUserUpload.create({
+                    _quarantinedUserId: req.user._id,
+                    images: [image]
+                })
+                res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+            } catch (err) {
+                console.log(err)
+                res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+            }
+        }
+        // const quarantinedUserUpload = new QuarantinedUserUpload({
+        //     _quarantinedUserId: req.user._id,
+        //     uploadType: 'image',
+        //     image: fileName
+        // })
+        // try {
+        //     await quarantinedUserUpload.save()
+        //     res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+        // } catch (err) {
+        //     console.log(err)
+        //     res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+        // }
     })
 })
 
 router.post('/voicenote', async (req, res) => {
+    return res.send('under development')
     let { file } = req.body
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let fileName = `${req.user._id + '-' + randomString(8) + '-' + Date.now()}.3gp`
