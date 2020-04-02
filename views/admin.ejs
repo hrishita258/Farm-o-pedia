@@ -37,7 +37,7 @@
                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
                             <span class="avatar avatar-sm rounded-circle">
-                                    <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
+                                    <img alt="Image placeholder" src="https://cdn3.vectorstock.com/i/1000x1000/32/77/quarantine-sign-or-stamp-vector-21653277.jpg">
                                 </span>
                         </div>
                     </a>
@@ -64,7 +64,7 @@
                     <div class="row">
                         <div class="col-6 collapse-brand">
                             <a href="../index.html">
-                                <img src="../assets/img/brand/blue.png">
+                                <img src="https://cdn3.vectorstock.com/i/1000x1000/32/77/quarantine-sign-or-stamp-vector-21653277.jpg">
                             </a>
                         </div>
                         <div class="col-6 collapse-close">
@@ -128,7 +128,7 @@
                         <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="media align-items-center">
                                 <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg">
+                                        <img alt="Image placeholder" src="https://cdn3.vectorstock.com/i/1000x1000/32/77/quarantine-sign-or-stamp-vector-21653277.jpg">
                                     </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
                                     <span class="mb-0 text-sm  font-weight-bold">Admin Name</span>
@@ -364,8 +364,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-postal-code">Travel Date</label>
-                                                <input type="date" id="input-postal-code" name="date" class="form-control" placeholder="17/3/2020"
-                                                    required>
+                                                <input type="date" id="input-postal-code" name="date" class="form-control" placeholder="17/3/2020" required>
                                             </div>
                                         </div>
 
@@ -412,7 +411,7 @@
             var data = {}
             postdata = $(this).serializeArray();
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
+                navigator.geolocation.getCurrentPosition(function(position) {
                     data.latitude = position.coords.latitude
                     data.longitude = position.coords.longitude
                     postdata.forEach(d => {
@@ -433,6 +432,7 @@
             } else {
                 alert("please switch to chrome")
             }
+
             function showPosition(position) {
                 data.latitude = position.coords.latitude
                 data.longitude = position.coords.longitude
