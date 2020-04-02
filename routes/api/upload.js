@@ -217,7 +217,7 @@ router.post('/image', async (req, res) => {
             try {
                 await QuarantinedUserUpload.create({
                     _quarantinedUserId: req.user._id,
-                    images: [image]
+                    images: [obj]
                 })
                 res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
             } catch (err) {
