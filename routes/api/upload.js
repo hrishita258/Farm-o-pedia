@@ -246,22 +246,55 @@ router.post('/image', async (req, res) => {
 })
 
 router.post('/voicenote', async (req, res) => {
-    return res.send('under development')
+    // return res.send('under development')
     let { file } = req.body
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
+    let d = new Date()
     let fileName = `${req.user._id + '-' + randomString(8) + '-' + Date.now()}.3gp`
+    let voiceNote = {
+        url: fileName,
+        timestamp: d
+    }
     fs.writeFile(`uploads/${fileName}`, file, async err => {
         if (err) {
             console.log(err)
             return res.status(500).json({ status: 500, statusCode: 'failed', message: 'Something wenrt wrong', error: err })
         }
-        const quarantinedUserUpload = new QuarantinedUserUpload({
+        let date = new Date()
+        let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
+        let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
+        const result = await QuarantinedUserUpload.findOne({
             _quarantinedUserId: req.user._id,
-            uploadType: 'voiceNote',
-            voiceNote: fileName
+            createdAt: {
+                $gte: date1,
+                $lt: date2
+            }
         })
+        if (result) {
+            try {
+                await QuarantinedUserUpload.updateOne({ _id: result._id }, {
+                    $push: {
+                        voiceNotes: voiceNote
+                    }
+                })
+                res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+            } catch (err) {
+                console.log(err)
+                res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+            }
+        } else {
+            try {
+                await QuarantinedUserUpload.create({
+                    _quarantinedUserId: req.user._id,
+                    voiceNotes: [voiceNote]
+                })
+                res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
+            } catch (err) {
+                console.log(err)
+                res.status(500).json({ status: 500, statusCode: 500, message: 'Something went wrong', error: err })
+            }
+        }
         try {
-            await quarantinedUserUpload.save()
             res.status(201).json({ status: 201, statusCode: 'success', message: 'Upload Successfully' })
         } catch (err) {
             console.log(err)
