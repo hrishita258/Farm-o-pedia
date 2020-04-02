@@ -51,7 +51,6 @@ router.post('/location', async (req, res) => {
     })
     if (result) {
         try {
-            console.log(location)
             await QuarantinedUserUpload.updateOne({
                 _id: result._id
             }, {
