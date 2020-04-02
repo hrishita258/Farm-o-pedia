@@ -36,7 +36,7 @@ router.post('/location', async (req, res) => {
     if (!req.body.latitude || !req.body.longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
     let { latitude, longitude } = req.body
     let location = {
-        latitude, longitude
+        latitude, longitude, date: new Date()
     }
     let date = new Date()
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
@@ -93,7 +93,7 @@ router.post('/location', async (req, res) => {
 
 router.post('/text', async (req, res) => {
     if (!req.body.text) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'text is required' })
-    let text = { text: req.body.text }
+    let text = { text: req.body.text, date: new Date() }
     let date = new Date()
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
     let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
@@ -189,7 +189,8 @@ router.post('/image', async (req, res) => {
             return res.status(500).json({ status: 500, statusCode: 'failed', message: 'Something wenrt wrong', error: err })
         }
         let obj = {
-            url: fileName
+            url: fileName,
+            date: new Date()
         }
         let date = new Date()
         let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)

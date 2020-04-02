@@ -16,13 +16,16 @@ const QuarantinedUserUploadSchema = new mongoose.Schema({
         }
     ],
     images: [{
-        url: String
+        url: String,
+        date: Date
     }],
     voiceNotes: [{
-        url: String
+        url: String,
+        date: Date
     }],
     texts: [{
-        text: String
+        text: String,
+        date: Date
     }]
 }, {
     timestamps: true
