@@ -37,7 +37,7 @@ router.post('/location', async (req, res) => {
     let { latitude, longitude } = req.body
     let d = new Date()
     let location = {
-        latitude, longitude, data: d
+        latitude, longitude, timestamp: d
     }
     let date = new Date()
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
@@ -51,6 +51,7 @@ router.post('/location', async (req, res) => {
     })
     if (result) {
         try {
+            console.log(location)
             await QuarantinedUserUpload.updateOne({
                 _id: result._id
             }, {
@@ -95,7 +96,7 @@ router.post('/location', async (req, res) => {
 router.post('/text', async (req, res) => {
     if (!req.body.text) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'text is required' })
     let d = new Date()
-    let text = { text: req.body.text, data: d }
+    let text = { text: req.body.text, timestamp: d }
     let date = new Date()
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
     let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
@@ -193,7 +194,7 @@ router.post('/image', async (req, res) => {
         }
         let obj = {
             url: fileName,
-            date: d
+            timestamp: d
         }
         let date = new Date()
         let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
