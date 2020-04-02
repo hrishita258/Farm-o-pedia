@@ -18,6 +18,12 @@ router.get('/', (req, res) => {
 
 router.use('/superadmin', require('./superAdmin'))
 router.use('/admin', require('./admin'))
+router.get('/map', (req, res) => {
+    latitude = req.query.latitude
+    longitude = req.query.longitude
+    if (!latitude || !longitude) return res.redirect('/')
+    res.render('map', { latitude, longitude })
+})
 
 // router.get('/admin', (req, res) => {
 //     res.render('dashboard')
