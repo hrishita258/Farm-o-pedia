@@ -3,18 +3,39 @@ const express = require('express')
 const router = express.Router()
 
 const { authToken } = require('../../middlewares')
-const { userOutOfArea } = require('../../models')
+const { userOutOfArea, QuarantinedUser } = require('../../models')
 
 router.use(authToken)
+
+const degree2radian = degree => {
+    return degree * (Math.PI / 180)
+}
+
+const calculateDistanceHaversine = (latitude1, longitude1, latitude2, longitude2) => {
+    let radius = 6371
+    let dLat = degree2radian(latitude2 - latitude1)
+    let dLng = degree2radian(longitude2 - longitude1)
+    let a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(degree2radian(latitude1)) * Math.cos(degree2radian(latitude2)) * Math.sin(dLng / 2) * Math.sin(dLng / 2)
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+    let d = radius * c
+    return d
+}
 
 router.get('/', (req, res) => {
     res.status(400).json({ status: 400, message: 'Send post request to this api' })
 })
 
 router.post('/', async (req, res) => {
-    if (!req.body.path.length) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'body must be an array of objects' })
-    for (let i = 0; i < req.body.path.length; i++) if (!req.body.path[i].latitude || !req.body.path[i].longitude || !req.body.path[i].date) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Each object must contain latitude, longitude and date fields' })
+    let { latitude, longitude } = req.body
+    if (!latitude || !longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
+    const user = await QuarantinedUser.findOne({ _id: req.user._id })
+    if (!user) return res.status(404).json({ status: 404, statusCode: 'failed', message: 'User not found' })
+    const distance = calculateDistanceHaversine(user.quarantineLocation.latitude, user.quarantineLocation.longitude, latitude, longitude)
+    if (distance <= 0.1) return res.status(200).send('Not out of Area')
     let date = new Date()
+    let obj = {
+        latitude, longitude, date
+    }
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
     let date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0)
     const result = await userOutOfArea.findOne({
@@ -30,12 +51,10 @@ router.post('/', async (req, res) => {
                 _id: result._id
             }, {
                 $push: {
-                    path: {
-                        $each: req.body.path
-                    }
+                    path: obj
                 }
             })
-            res.status(201).json({ status: 201, statusCode: 'success', message: 'Location added successfully' })
+            res.status(400).send('User out of area')
         } catch (err) {
             console.log(err)
             res.status(500).json({ status: 500, statusCode: 'failed', message: 'Something went wrong', error: err })
@@ -44,9 +63,9 @@ router.post('/', async (req, res) => {
         try {
             await userOutOfArea.create({
                 _quarantinedUserId: req.user._id,
-                path: [...req.body.path]
+                path: [obj]
             })
-            res.status(201).json({ status: 201, statusCode: 'success', message: 'Location added successfully' })
+            res.status(400).send('User out of area')
         } catch (err) {
             console.log(err)
             res.status(500).json({ status: 500, statusCode: 'failed', message: 'Something went wrong', error: err })

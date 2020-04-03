@@ -181,7 +181,7 @@ router.post('/text', async (req, res) => {
 // })
 
 router.post('/image', async (req, res) => {
-    let { file } = req.body
+    let { file, fever, cough, breathing } = req.body
     let d = new Date()
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let base64Image = file.split(';base64,').pop()
@@ -193,6 +193,9 @@ router.post('/image', async (req, res) => {
         }
         let obj = {
             url: fileName,
+            fever,
+            cough,
+            breathing,
             timestamp: d
         }
         let date = new Date()

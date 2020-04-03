@@ -20,6 +20,9 @@ const QuarantinedUserUploadSchema = new mongoose.Schema({
     ],
     images: [{
         url: String,
+        fever: Number,
+        cough: Number,
+        breathing: Number,
         timestamp: Date
     }],
     voiceNotes: [{
