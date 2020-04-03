@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         detectedState: req.user.state,
         detectedCity: req.user.city,
         block: req.user.block
-    })
+    }).sort({ createdAt: -1 })
     res.render('admin', { users: foundUsers })
 })
 

@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 router.get('/patients', async (req, res) => {
     const foundUsers = await QuarantinedUser.find()
-    res.render('patients', { users: foundUsers })
+    res.render('patients', { users: foundUsers }).sort({ createdAt: -1 })
 })
 
 router.get('/patient/:id', async (req, res) => {
