@@ -27,12 +27,12 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     let { latitude, longitude } = req.body
-    console.log(latitude, longitude, req.body.authorization)
+    console.log(latitude, longitude)
     if (!latitude || !longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
     const user = await QuarantinedUser.findOne({ _id: req.user._id })
     if (!user) return res.status(404).json({ status: 404, statusCode: 'failed', message: 'User not found' })
     const distance = calculateDistanceHaversine(user.quarantineLocation.latitude, user.quarantineLocation.longitude, latitude, longitude)
-    if (distance <= 0.005) return res.status(200).send('Not out of Area')
+    if (distance <= 0.003) return res.status(200).send('Not out of Area')
     let date = new Date()
     let obj = {
         latitude, longitude, date
