@@ -50,6 +50,9 @@ router.post('/patient', (req, res) => {
     password = 'password'
     let quarantineLocation = { latitude: 0, longitude: 0 }
     let registrationLocation = { latitude, longitude }
+    detectedCity = detectedCity.toLowerCase()
+    detectedState = detectedState.toLowerCase()
+    block = block.toLowerCase()
     bcrypt.genSalt(10, (err, salt) => {
         if (err) {
             console.log(err)

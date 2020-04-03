@@ -57,6 +57,9 @@ router.post('/admin', async (req, res) => {
     password = 'password'
     const salt = await bcrypt.genSalt(10)
     password = await bcrypt.hash(password, salt)
+    city = city.toLowerCase()
+    state = state.toLowerCase()
+    block = block.toLowerCase()
     try {
         await DashboardUser.create({
             name,
@@ -113,6 +116,9 @@ router.post('/patient', (req, res) => {
     password = 'password'
     let quarantineLocation = { latitude: 0, longitude: 0 }
     let registrationLocation = { latitude, longitude }
+    detectedCity = detectedCity.toLowerCase()
+    detectedState = detectedState.toLowerCase()
+    block = block.toLowerCase()
     bcrypt.genSalt(10, (err, salt) => {
         if (err) {
             console.log(err)

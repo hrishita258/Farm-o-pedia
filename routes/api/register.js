@@ -20,6 +20,9 @@ router.post('/', async (req, res) => {
     let travelHistory = { route: travel, date }
     // end
     if (password && password.length < 6) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Password length should be more than 6' })
+    detectedCity = detectedCity.toLowerCase()
+    detectedState = detectedState.toLowerCase()
+    block = block.toLowerCase()
     bcrypt.genSalt(10, (err, salt) => {
         if (err) {
             console.log(err)
