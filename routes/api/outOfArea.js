@@ -27,7 +27,6 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     let { latitude, longitude } = req.body
-    console.log(latitude, longitude)
     if (!latitude || !longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
     const user = await QuarantinedUser.findOne({ _id: req.user._id })
     if (!user) return res.status(404).json({ status: 404, statusCode: 'failed', message: 'User not found' })
