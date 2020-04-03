@@ -23,6 +23,9 @@ router.post('/', async (req, res) => {
     detectedCity = detectedCity.toLowerCase()
     detectedState = detectedState.toLowerCase()
     block = block.toLowerCase()
+    if (gender == 'Men') gender = 'male'
+    if (gender == 'Women') gender = 'female'
+    if (gender == 'Other') gender = 'other'
     bcrypt.genSalt(10, (err, salt) => {
         if (err) {
             console.log(err)
