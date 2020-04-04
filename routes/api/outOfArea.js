@@ -63,6 +63,18 @@ router.post('/', async (req, res) => {
         try {
             await userOutOfArea.create({
                 _quarantinedUserId: req.user._id,
+                user: {
+                    name1: req.user.name1,
+                    name2: req.user.name2,
+                    phoneNumber1: req.user.phoneNumber1,
+                    phoneNumber2: req.user.phoneNumber2,
+                    age: req.user.age,
+                    gender: req.user.gender,
+                    block: req.user.block,
+                    detectedCity: req.user.detectedCity,
+                    detectedState: req.user.detectedState,
+                    address: req.user.address
+                },
                 path: [obj]
             })
             res.status(400).send('User out of area')
