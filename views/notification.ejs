@@ -169,92 +169,7 @@
                 <div class="header-body">
                     <!-- Card stats -->
                     <div class="row">
-                        <div class="col-xl-3 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Total Patient</h5>
-                                            <span class="h2 font-weight-bold mb-0">350,897</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                                <i class="fas fa-chart-bar"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                        <span class="text-nowrap">Since last month</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                                            <span class="h2 font-weight-bold mb-0">2,356</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                                <i class="fas fa-chart-pie"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i>
-                                                3.48%</span>
-                                        <span class="text-nowrap">Since last week</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                                            <span class="h2 font-weight-bold mb-0">924</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                                <i class="fas fa-users"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i>
-                                                1.10%</span>
-                                        <span class="text-nowrap">Since yesterday</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                                            <span class="h2 font-weight-bold mb-0">49,65%</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                                                <i class="fas fa-percent"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                                        <span class="text-nowrap">Since last month</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -271,30 +186,47 @@
                             <table class="table align-items-center" id="dataTable" width="100%" cellspacing="0">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>No of days</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">tracker</th>
-                                        <th scope="col">Upload status</th>
+                                        <th>Name</th>
+                                        <th scope="col">Phone no.</th>
+                                        <th scope="col">Age</th>
+                                        <th scope="col">gender</th>
+                                        <th scope="col">Family person name</th>
+                                        <th scope="col">Family person phone</th>
+                                        <th scope="col">Block</th>
+                                        <th scope="col">city</th>
                                         <th scope="col">action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Something</td>
-                                        <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal2">Show</button></td>
-                                        <td><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModal">Show</button></td>
-                                        <td>
-                                            <div class="d-flex">
-                                                <a href="#" class="btn btn-primary btn-sm rounded-circle"><i
-                                                            class="fas fa-eye"></i></a>
-                                                <a href="#" class="btn btn-dark btn-sm rounded-circle"><i
-                                                            class="fas fa-edit"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm rounded-circle"><i
-                                                            class="fas fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <% userOutArea.forEach((user) => { %>
+                                        <tr>
+                                            <td>
+                                                <%=user.user.name1%>
+                                            </td>
+                                            <td>
+                                                <%=user.user.phoneNumber1%>
+                                            </td>
+                                            <td>
+                                                <%=user.user.age%>
+                                            </td>
+                                            <td>
+                                                <%=user.user.gender%>
+                                            </td>
+                                            <td>
+                                                <%=user.user.name2%>
+                                            </td>
+                                            <td>
+                                                <%=user.user.phoneNumber2%>
+                                            </td>
+                                            <td>
+                                                <%=user.user.block%>
+                                            </td>
+                                            <td>
+                                                <%=user.user.detectedCity%>
+                                            </td>
+                                            <td><button class="btn btn-default btn-sm" data-toggle="modal" onclick="showLocation(<%=JSON.stringify(user.path)%>)" data-target="#exampleModal">Show location</button></td>
+                                        </tr>
+                                        <%}) %>
                                 </tbody>
                             </table>
                         </div>
@@ -319,96 +251,27 @@
 
 
     <!-- image upload status modal -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Uploded image tracker</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <!-- outside home timeline modal start -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-la<%=JSON.stringify(user.path)%></div>belledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Patient outside home location timeline</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                </div>
-                <div class="modal-body">
-                    <div class="time-line middle-pane">
-                        <ul class="progress-indicator  four-items ">
-                            <li class="completed">
-                                <span class="bubble"><i class="fa"></i></span>
-                                <h4 class="dark">Morning</h4>
-                                <p class="timestamp light"> Mar 05, 2020 12:26 PM IST</p>
-                            </li>
-                            <li class="not-permitted">
-                                <span class="bubble"><i class="fa"></i></span>
-                                <h4 class="dark">AfterNoon</h4>
-                                <p id="phase-end-text" class="red-text inline-block">Missed</p>
-                            </li>
-                            <li class="completed">
-                                <span class="bubble"><i class="fa"></i></span>
-                                <h4 class="dark">Evening</h4>
-                                <p class="timestamp light"> Mar 05, 2020 12:26 PM IST</p>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+            </div>
+            <div class="modal-body">
+                <section id="cd-timeline" class="cd-container">
+
+                </section>
+                <!-- cd-timeline -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-    <!-- image upload status modal end -->
-
-    <!-- outside home timeline modal start -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Patient outside home location timeline</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="modal-body">
-                    <section id="cd-timeline" class="cd-container">
-
-                        <div class="cd-timeline-block">
-                            <div class="cd-timeline-img cd-location">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location">
-                            </div>
-                            <!-- cd-timeline-img -->
-
-                            <div class="cd-timeline-content">
-                                <h2>Reason</h2>
-                                <p>reason will populate if the user gives.
-                                </p>
-                                <span class="cd-date">Sun Mar 29 2020 21:35:39 GMT+0530</span>
-                            </div>
-                            <!-- cd-timeline-content -->
-                        </div>
-                        <!-- cd-timeline-block -->
-
-                        <div class="cd-timeline-block">
-                            <div class="cd-timeline-img cd-location">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location">
-                            </div>
-                            <!-- cd-timeline-img -->
-
-                            <div class="cd-timeline-content">
-                                <span class="cd-date">Sun Mar 29 2020 21:35:39 GMT+0530</span>
-                            </div>
-                            <!-- cd-timeline-content -->
-                        </div>
-                        <!-- cd-timeline-block -->
-                    </section>
-                    <!-- cd-timeline -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- outside home timeline modal end -->
     <!--   Core   -->
@@ -455,6 +318,51 @@
                 });
             });
         });
+
+        async function showLocation(data) {
+            $('#cd-timeline').empty()
+            if (data.length == 1) {
+                await data.forEach(d => {
+                    $('#cd-timeline').append(` <div class="cd-timeline-block">
+                            <div class="cd-timeline-img cd-location">
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location">
+                            </div>
+                            <!-- cd-timeline-img -->
+                            <div class="cd-timeline-content">
+                                <a href="/map?latitude=${d.latitude}&longitude=${d.longitude}">Show on map</a>
+                                
+                                <span class="cd-date">out of Quarantine on : - ${d.date}</span>
+                            </div>
+                            <!-- cd-timeline-content -->
+                        </div>`)
+                })
+            } else {
+                $('#cd-timeline').append(` <div class="cd-timeline-block">
+                            <div class="cd-timeline-img cd-location">
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location">
+                            </div>
+                            <!-- cd-timeline-img -->
+                            <div class="cd-timeline-content">
+                                <a href="#" onclick="sendLocationObj(<%=JSON.stringify(data)%>)">Show full route on map</a>
+                                <span class="cd-date"></span>
+                            </div>
+                            <!-- cd-timeline-content -->
+                        </div>`)
+            }
+
+        }
+
+        const SendLocationObj = (ArrayOfLocationObj) => {
+            console.log(ArrayOfLocationObj)
+            $.ajax({
+                type: "POST",
+                url: "serverUrl",
+                data: formData,
+                success: function() {},
+                dataType: "json",
+                contentType: "application/json"
+            });
+        }
     </script>
 </body>
 
