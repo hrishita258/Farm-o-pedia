@@ -19,14 +19,11 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/notification', async (req, res) => {
-    const foundUserOutOfAreas = await userOutOfArea.find({
-        user: {
-            detectedState: req.user.state,
-            detectedCity: req.user.city,
-            block: req.user.block
-        }
-    }).sort({
+    let foundUserOutOfAreas = await userOutOfArea.find().sort({
         createdAt: -1
+    })
+    foundUserOutOfAreas = foundUserOutOfAreas.filter(user => {
+        if (user.user.detectedState == req.user.state && user.user.detectedCity == req.user.city && user.user.block == req.user.block) return user
     })
     res.render('notification', { userOutArea: foundUserOutOfAreas })
 })
