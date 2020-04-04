@@ -25,6 +25,11 @@ router.get('/map', (req, res) => {
     res.render('map', { latitude, longitude })
 })
 
+router.post('/track', (req, res) => {
+    let flightPath = JSON.parse(req.body.path)
+    res.render('maps', { flightPath })
+})
+
 // router.get('/admin', (req, res) => {
 //     res.render('dashboard')
 // })

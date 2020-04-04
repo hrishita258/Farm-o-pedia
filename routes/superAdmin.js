@@ -20,7 +20,6 @@ router.get('/notification', async (req, res) => {
     const foundUserOutOfAreas = await userOutOfArea.find().sort({
         createdAt: -1
     })
-    console.log(foundUserOutOfAreas)
     res.render('notification', { userOutArea: foundUserOutOfAreas })
 })
 

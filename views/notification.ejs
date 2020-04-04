@@ -321,10 +321,7 @@
 
         async function showLocation(data) {
             $('#cd-timeline').empty()
-            var data2 = JSON.stringify({
-                data: data
-            });
-
+            var data2 = JSON.stringify(data);
             console.log(data2)
             await data.forEach(d => {
                 $('#cd-timeline').append(` <div class="cd-timeline-block">
@@ -333,25 +330,15 @@
                             </div>
                             <!-- cd-timeline-img -->
                             <div class="cd-timeline-content">
-                                <a href="#" onclick="SendLocationObj(${data2})">Show on map</a>
-                                
+                                <form method="POST" action="/track">
+                                    <input type="text" name="path" value='${data2}' hidden>
+                                    <button type='submit'>Track Location</button>   
+                                <form>
                                 <span class="cd-date">out of Quarantine on : - ${d.date}</span>
                             </div>
                             <!-- cd-timeline-content -->
                         </div>`)
             })
-        }
-
-        const SendLocationObj = (ArrayOfLocationObj) => {
-            console.log(ArrayOfLocationObj.data)
-            $.ajax({
-                type: "POST",
-                url: "/map",
-                data: ArrayOfLocationObj,
-                success: function() {},
-                dataType: "json",
-                contentType: "application/json"
-            });
         }
     </script>
 </body>
