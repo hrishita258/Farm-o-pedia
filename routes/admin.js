@@ -18,9 +18,17 @@ router.get('/', async (req, res) => {
     res.render('admin', { users: foundUsers })
 })
 
-router.get('/notification', (req, res) => {
-    res.redirect('/')
-    // res.render('notification')
+router.get('/notification', async (req, res) => {
+    const foundUserOutOfAreas = await userOutOfArea.find({
+        user: {
+            detectedState: req.user.state,
+            detectedCity: req.user.city,
+            block: req.user.block
+        }
+    }).sort({
+        createdAt: -1
+    })
+    res.render('notification', { userOutArea: foundUserOutOfAreas })
 })
 
 router.get('/patient/:id', async (req, res) => {
@@ -30,10 +38,8 @@ router.get('/patient/:id', async (req, res) => {
         })
         if (!foundPatient) return res.redirect('/')
         // console.log(foundPatient)
-        const foundPatientUpload = await QuarantinedUserUpload.find({ _quarantinedUserId: foundPatient._id }).sort({ createdAt: 1 })
-        const foundUserOutOfAreas = await userOutOfArea.find({ _quarantinedUserId: foundPatient._id }).sort({ createdAt: 1 })
-        // console.log(foundUserOutOfAreas)
-        res.render('Patient', { user: foundPatient, upload: foundPatientUpload, userOutOfArea: foundUserOutOfAreas })
+        const foundPatientUpload = await QuarantinedUserUpload.find({ _quarantinedUserId: foundPatient._id }).sort({ createdAt: -1 })
+        res.render('Patient', { user: foundPatient, upload: foundPatientUpload })
     } catch (err) {
         console.log(err)
         res.redirect('/')

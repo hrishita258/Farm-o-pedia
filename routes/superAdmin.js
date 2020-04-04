@@ -16,6 +16,14 @@ router.get('/', async (req, res) => {
     })
 })
 
+router.get('/notification', async (req, res) => {
+    const foundUserOutOfAreas = await userOutOfArea.find().sort({
+        createdAt: -1
+    })
+    console.log(foundUserOutOfAreas)
+    res.render('notification', { userOutArea: foundUserOutOfAreas })
+})
+
 router.get('/patients', async (req, res) => {
     const foundUsers = await QuarantinedUser.find()
     res.render('patients', { users: foundUsers }).sort({ createdAt: -1 })
