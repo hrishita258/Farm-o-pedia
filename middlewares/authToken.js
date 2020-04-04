@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 
 module.exports = async (req, res, next) => {
     // let token = req.headers['x-access-token']
-    console.log(req.body.authorization)
     let token = req.body.authorization
     // if (!token) return res.status(403).json({ status: 403, statusCode: 'failed', message: 'Access Token is required in headers' })
     if (!token) return res.status(403).json({ status: 403, statusCode: 'failed', message: 'Access Token is required in body' })
