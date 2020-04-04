@@ -11,6 +11,7 @@
 ### API_KEY
 ### JWT_ACCESS_TOKEN_SECRET
 ### JWT_REFRESH_TOKEN_SECRET
+### MAPS_API_KEY
 
 
 # Install Dependencies

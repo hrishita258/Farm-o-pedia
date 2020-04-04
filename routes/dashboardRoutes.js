@@ -1,3 +1,4 @@
+if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 const express = require('express')
 const path = require('path')
 
@@ -18,6 +19,7 @@ router.get('/', (req, res) => {
 
 router.use('/superadmin', require('./superAdmin'))
 router.use('/admin', require('./admin'))
+
 router.get('/map', (req, res) => {
     latitude = req.query.latitude
     longitude = req.query.longitude
@@ -27,24 +29,8 @@ router.get('/map', (req, res) => {
 
 router.post('/track', (req, res) => {
     let flightPath = JSON.parse(req.body.path)
-    res.render('maps', { flightPath })
+    res.render('maps', { flightPath, apiKey: process.env.MAPS_API_KEY })
 })
-
-// router.get('/admin', (req, res) => {
-//     res.render('dashboard')
-// })
-
-// router.get('/admin/patientdetails', (req, res) => {
-//     res.render('Patient')
-// })
-
-// router.get('/admin/notification', (req, res) => {
-//     res.render('notification')
-// })
-
-// router.get('/superadmin', (req, res) => {
-//     res.render('admin')
-// })
 
 router.get('*', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, '../public/404.html'))
