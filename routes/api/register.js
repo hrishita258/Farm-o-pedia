@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
     // custom objects
     let { name1, name2, phoneNumber1, phoneNumber2, age, gender, dateAnnounced, currentStatus, detectedCity, block, detectedState, nationality, address, latitude, longitude, travel, date, password, fever, cough, breathing } = req.body
     let registrationLocation = { latitude, longitude }
-    let quarantineLocation = { latitude, longitude }
+    let quarantineLocation = { latitude: 0, longitude: 0 }
     let travelHistory = { route: travel, date }
     // end
     if (password && password.length < 6) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Password length should be more than 6' })
