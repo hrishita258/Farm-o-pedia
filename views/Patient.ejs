@@ -285,7 +285,9 @@
                                 <tbody>
                                     <%upload.forEach((upl, index) => {%>
                                         <tr>
-                                            <td><%=index+1%></td>
+                                            <td>
+                                                <%=index+1%>
+                                            </td>
                                             <td>
                                                 <%=upload.createdAt%>
                                             </td>
@@ -482,10 +484,11 @@
             function showImage(data) {
                 $("#imageModal").empty()
                 data.forEach(d => {
+                    let src = 'http://52.206.184.26:5000/' + d.url;
                     $("#imageModalBody").append(`
                         <li class="cards_item col-md-12 col-lg-12 col-sm-12">
                         <div class="card">
-                            <div class="card_image"><img src="src="https://quarguard.herokuapp.com/${d.url}"></div>
+                            <div class="card_image"><img src="src="${src}"></div>
                             <div class="card_content">
                             <h2 class="card_title">${d.timestamp}</h2>
                             <p class="card_text">

@@ -32,12 +32,14 @@ const voiceNoteFilter = (req, file, next) => {
     next(null, true)
 }
 
-router.post('/location', async (req, res) => {
+router.post('/location', async(req, res) => {
     if (!req.body.latitude || !req.body.longitude) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'latitude and longitude are required' })
     let { latitude, longitude } = req.body
     let d = new Date()
     let location = {
-        latitude, longitude, timestamp: d
+        latitude,
+        longitude,
+        timestamp: d
     }
     let date = new Date()
     let date1 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
@@ -92,7 +94,7 @@ router.post('/location', async (req, res) => {
     // }
 })
 
-router.post('/text', async (req, res) => {
+router.post('/text', async(req, res) => {
     if (!req.body.text) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'text is required' })
     let d = new Date()
     let text = { text: req.body.text, timestamp: d }
@@ -180,12 +182,12 @@ router.post('/text', async (req, res) => {
 //     }
 // })
 
-router.post('/image', async (req, res) => {
+router.post('/image', async(req, res) => {
     let { file, fever, cough, breathing } = req.body
     let d = new Date()
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let base64Image = file.split(';base64,').pop()
-    let fileName = `${req.user._id + '-' + randomString(8) + '-' + Date.now()}.bmp`
+    let fileName = `${req.user._id + '-' + Date.now()}.bmp`
     fs.writeFile(`uploads/${fileName}`, base64Image, { encoding: 'base64' }, async err => {
         if (err) {
             console.log(err)
@@ -247,12 +249,12 @@ router.post('/image', async (req, res) => {
     })
 })
 
-router.post('/voicenote', async (req, res) => {
+router.post('/voicenote', async(req, res) => {
     // return res.send('under development')
     let { file } = req.body
     if (!file) return res.status(400).json({ status: 400, statusCode: 'failed', message: 'Please upload a file' })
     let d = new Date()
-    let fileName = `${req.user._id + '-' + randomString(8) + '-' + Date.now()}.3gp`
+    let fileName = `${req.user._id + '-' + Date.now()}.3gp`
     let voiceNote = {
         url: fileName,
         timestamp: d
