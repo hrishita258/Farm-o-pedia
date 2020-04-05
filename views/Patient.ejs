@@ -59,8 +59,10 @@
     }
     
     img {
-        height: auto;
         max-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
         vertical-align: middle;
     }
     
@@ -94,8 +96,8 @@
         border-radius: 0.25rem;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         display: flex;
-        height: auto;
-        width: auto;
+        /* height: auto;
+        width: auto; */
         flex-direction: column;
         overflow: hidden;
     }
@@ -488,7 +490,7 @@
                     $("#imageModalBody").append(`
                         <li class="cards_item col-md-12 col-lg-12 col-sm-12">
                         <div class="card">
-                            <div class="card_image"><img src="src="${src}"></div>
+                            <div class="card_image"><img src="${src}"></div>
                             <div class="card_content">
                             <h2 class="card_title">${d.timestamp}</h2>
                             <p class="card_text">
