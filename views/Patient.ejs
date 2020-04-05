@@ -278,20 +278,18 @@
                                         <th>No of days</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">tracker</th>
-                                        <th scope="col">Upload status</th>
                                         <th scope="col">Voice Notes</th>
-                                        <th scope="col">action</th>
+                                        <th scope="col">action</th>x
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%upload.forEach(upl => {%>
+                                    <%upload.forEach((upl, index) => {%>
                                         <tr>
-                                            <td>1</td>
+                                            <td><%=index+1%></td>
                                             <td>
                                                 <%=upload.createdAt%>
                                             </td>
                                             <td><button class="btn btn-info btn-sm" onclick="showLocation(<%=JSON.stringify(upl.locations)%>)" data-toggle="modal" data-target="#exampleModal2">Show</button></td>
-                                            <td><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModal">Show</button></td>
                                             <td><audio controls>
                                                     <source src="" type="audio/ogg">
                                                 </audio></td>
