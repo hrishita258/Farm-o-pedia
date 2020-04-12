@@ -1,5 +1,8 @@
 # covid19-quarantine-tracker
 
+## link for mobile app src
+## https://github.com/technoindianjr/homeq14
+
 ### For example api calls are in request.rest file
 ### replace http://localhost:5000 to https://quarguard.herokuapp.com
 
