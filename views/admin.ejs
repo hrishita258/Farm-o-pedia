@@ -1,444 +1,471 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blueprint: Page Stack Navigation</title>
+    <meta
+      name="description"
+      content="Blueprint: A basic template for a page stack navigation effect"
+    />
+    <meta
+      name="keywords"
+      content="blueprint, template, html, css, page stack, 3d, perspective, navigation, menu"
+    />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>
-        QuardGuard@Dashboard
-    </title>
-    <!-- Favicon -->
-    <link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <!-- Icons -->
-    <link href="../assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-    <link href="../assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link href="../assets/css/argon-dashboard.css?v=1.1.1" rel="stylesheet" />
-    <!-- datatable -->
-    <link rel="stylesheet" href="../datatables/dataTables.bootstrap4.min.css">
-</head>
-
-<body class="">
-    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
-        <div class="container-fluid">
-            <!-- Toggler -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <!-- Brand -->
-            <a class="navbar-brand pt-0" href="../index.html">
-                <img src="https://invisioncommunity.co.uk/wp-content/uploads/2017/01/QuarantineLogo_Blk_whitebgnd.png" class="navbar-brand-img" alt="...">
-            </a>
-            <!-- User -->
-            <ul class="nav align-items-center d-md-none">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="media align-items-center">
-                            <span class="avatar avatar-sm rounded-circle">
-                                    <img alt="Image placeholder" src="https://cdn3.vectorstock.com/i/1000x1000/32/77/quarantine-sign-or-stamp-vector-21653277.jpg">
-                                </span>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-                        <div class=" dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome!</h6>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <form action="/logout" method="POST">
-                            <button class="dropdown-item" type="submit"><i class="ni ni-user-run"></i>
-                                Logout</button>
-                        </form>
-                        <!-- <a href="#!" class="dropdown-item">
-                            <i class="ni ni-user-run"></i>
-                            <span>Logout</span>
-                        </a> -->
-                    </div>
-                </li>
-            </ul>
-            <!-- Collapse -->
-            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-                <!-- Collapse header -->
-                <div class="navbar-collapse-header d-md-none">
-                    <div class="row">
-                        <div class="col-6 collapse-brand">
-                            <a href="../index.html">
-                                <img src="https://cdn3.vectorstock.com/i/1000x1000/32/77/quarantine-sign-or-stamp-vector-21653277.jpg">
-                            </a>
-                        </div>
-                        <div class="col-6 collapse-close">
-                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
-                                    <span></span>
-                                    <span></span>
-                                </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Form -->
-                <form class="mt-4 mb-3 d-md-none">
-                    <div class="input-group input-group-rounded input-group-merge">
-                        <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <span class="fa fa-search"></span>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!-- Navigation -->
-                <ul class="navbar-nav">
-                    <li class="nav-item  active ">
-                        <a class="nav-link " href="#">
-                            <i class="ni ni-tv-2 text-primary"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="/admin/notification">
-                            <i class="ni ni-planet text-blue"></i> Notification
-                        </a>
-                    </li>
-                </ul>
-                <!-- Divider -->
-                <hr class="my-3">
-                <!-- Heading -->
-            </div>
-        </div>
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr-custom.js"></script>
+  </head>
+  <style>
+    /*! CSS Used from: https://radixtouch.com/templates/admin/spice/source/assets/plugins/bootstrap/css/bootstrap.min.css */
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+    .col-12,
+    .col-md-6,
+    .col-xl-3 {
+      position: relative;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .col-12 {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    @media (min-width: 768px) {
+      .col-md-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+    @media (min-width: 1200px) {
+      .col-xl-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
+    }
+    .progress {
+      display: -ms-flexbox;
+      display: flex;
+      height: 1rem;
+      overflow: hidden;
+      font-size: 0.75rem;
+      background-color: #e9ecef;
+      border-radius: 0.25rem;
+    }
+    .progress-bar {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-pack: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      background-color: #007bff;
+      transition: width 0.6s ease;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .progress-bar {
+        transition: none;
+      }
+    }
+    @media print {
+      *,
+      ::after,
+      ::before {
+        text-shadow: none !important;
+        box-shadow: none !important;
+      }
+    }
+    /*! CSS Used from: https://radixtouch.com/templates/admin/spice/source/assets/plugins/material/material.min.css */
+    ::-moz-selection {
+      background: #b3d4fc;
+      text-shadow: none;
+    }
+    ::selection {
+      background: #b3d4fc;
+      text-shadow: none;
+    }
+    @media print {
+      *,
+      *:before,
+      *:after,
+      *:first-letter {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+      }
+    }
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      word-wrap: normal;
+      -moz-font-feature-settings: 'liga';
+      font-feature-settings: 'liga';
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    /*! CSS Used from: https://radixtouch.com/templates/admin/spice/source/assets/css/material_style.css */
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'liga';
+    }
+    /*! CSS Used from: https://radixtouch.com/templates/admin/spice/source/assets/css/style.css */
+    .width-60 {
+      width: 60%;
+    }
+    .bg-blue {
+      background: #3598dc;
+      color: #fff;
+    }
+    .bg-blue {
+      background-color: #389af0;
+    }
+    .info-box {
+      min-height: 100px;
+      width: 100%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 25px;
+    }
+    .info-box .progress {
+      background: rgba(0, 0, 0, 0.2);
+      margin: 5px -10px 5px 0;
+      height: 2px;
+    }
+    .info-box .progress,
+    .info-box .progress .progress-bar {
+      border-radius: 0;
+    }
+    .info-box .progress .progress-bar {
+      background: #fff;
+    }
+    .info-box-icon {
+      float: left;
+      height: 70px;
+      width: 70px;
+      text-align: center;
+      font-size: 30px;
+      line-height: 74px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 100%;
+    }
+    .info-box-icon.push-bottom {
+      margin-top: 20px;
+    }
+    .info-box-content {
+      padding: 10px 10px 10px 0;
+      margin-left: 90px;
+    }
+    .info-box-number {
+      font-weight: 300;
+      font-size: 21px;
+    }
+    .info-box-text,
+    .progress-description {
+      display: block;
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 400;
+    }
+    .progress-description {
+      margin: 0;
+    }
+    .progress {
+      border: 0;
+      background-image: none;
+      filter: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      height: 8px;
+      border-radius: 0 !important;
+      margin: 0;
+    }
+    /*! CSS Used fontfaces */
+    @font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://radixtouch.com/templates/admin/spice/source/assets/plugins/material-icons/iconfont/MaterialIcons-Regular.eot);
+      src: local('Material Icons'), local('MaterialIcons-Regular'),
+        url(https://radixtouch.com/templates/admin/spice/source/assets/plugins/material-icons/iconfont/MaterialIcons-Regular.woff2)
+          format('woff2'),
+        url(https://radixtouch.com/templates/admin/spice/source/assets/plugins/material-icons/iconfont/MaterialIcons-Regular.woff)
+          format('woff'),
+        url(https://radixtouch.com/templates/admin/spice/source/assets/plugins/material-icons/iconfont/MaterialIcons-Regular.ttf)
+          format('truetype');
+    }
+  </style>
+  <body>
+    <!-- navigation -->
+    <nav class="pages-nav">
+      <div class="pages-nav__item">
+        <a class="link link--page" href="#page-home">Home</a>
+      </div>
+      <div class="pages-nav__item">
+        <a class="link link--page" href="#page-docu">Documentation</a>
+      </div>
+      <div class="pages-nav__item">
+        <a class="link link--page" href="#page-manuals">Manuals</a>
+      </div>
+      <div class="pages-nav__item">
+        <a class="link link--page" href="#page-software">Software</a>
+      </div>
+      <div class="pages-nav__item">
+        <a class="link link--page" href="#page-custom"
+          >Customization &amp; Settings</a
+        >
+      </div>
+      <div class="pages-nav__item">
+        <a class="link link--page" href="#page-training">Training</a>
+      </div>
+      <div class="pages-nav__item pages-nav__item--small">
+        <a class="link link--page link--faded" href="#page-buy">Where to buy</a>
+      </div>
+      <div class="pages-nav__item pages-nav__item--small">
+        <a class="link link--page link--faded" href="#page-blog"
+          >Blog &amp; News</a
+        >
+      </div>
+      <div class="pages-nav__item pages-nav__item--small">
+        <a class="link link--page link--faded" href="#page-contact">Contact</a>
+      </div>
+      <div class="pages-nav__item pages-nav__item--social">
+        <a class="link link--social link--faded" href="#"
+          ><i class="fa fa-twitter"></i
+          ><span class="text-hidden">Twitter</span></a
+        >
+        <a class="link link--social link--faded" href="#"
+          ><i class="fa fa-linkedin"></i
+          ><span class="text-hidden">LinkedIn</span></a
+        >
+        <a class="link link--social link--faded" href="#"
+          ><i class="fa fa-facebook"></i
+          ><span class="text-hidden">Facebook</span></a
+        >
+        <a class="link link--social link--faded" href="#"
+          ><i class="fa fa-youtube-play"></i
+          ><span class="text-hidden">YouTube</span></a
+        >
+      </div>
     </nav>
-    <div class="main-content">
-        <!-- Navbar -->
-        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
-            <div class="container-fluid">
-                <!-- Brand -->
-                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Admin</a>
-                <!-- Form -->
-                <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
-                    <div class="form-group mb-0">
-                        <div class="input-group input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            </div>
-                            <input class="form-control" placeholder="Search" type="text">
-                        </div>
-                    </div>
-                </form>
-                <!-- User -->
-                <ul class="navbar-nav align-items-center d-none d-md-flex">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="media align-items-center">
-                                <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="https://cdn3.vectorstock.com/i/1000x1000/32/77/quarantine-sign-or-stamp-vector-21653277.jpg">
-                                    </span>
-                                <div class="media-body ml-2 d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">Admin Name</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-                            <div class=" dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Stay Safe</h6>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <form action="/logout" method="POST">
-                                <button class="dropdown-item" type="submit"><i class="ni ni-user-run"></i>
-                                    Logout</button>
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <!-- End Navbar -->
-        <!-- Header -->
-        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-            <div class="container-fluid">
-                <div class="header-body">
-                    <!-- Card stats -->
-                    <div class="row">
-                        <div class="text-center">
-                            <button data-toggle="modal" data-target="#modal-form2" class="btn btn-secondary">Register New Patient</button>
-                        </div>
-                    </div>
+    <!-- /navigation-->
+    <!-- pages stack -->
+    <div class="pages-stack">
+      <!-- page -->
+      <div class="page" id="page-home">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 col-12">
+              <div class="info-box bg-blue">
+                <span class="info-box-icon push-bottom"
+                  ><i class="material-icons">style</i></span
+                >
+                <div class="info-box-content">
+                  <span class="info-box-text">Orders</span>
+                  <span class="info-box-number">450</span>
+                  <div class="progress">
+                    <div class="progress-bar width-60"></div>
+                  </div>
+                  <span class="progress-description">
+                    60% Increase in 28 Days
+                  </span>
                 </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
             </div>
+            <div class="col-md-4">
+              <div class="card bg-dark">
+                <div class="card-body">Hrishita</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="container-fluid mt--7">
-            <!-- Table -->
-            <div class="row">
-                <div class="col">
-                    <div class="card shadow">
-                        <div class="card-header border-0">
-                            <h3 class="mb-0">Registerd Patient</h3>
-                        </div>
-                        <div class="table-responsive p-4">
-                            <table class="table align-items-center" id="dataTable" width="100%" cellspacing="0">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th>SNO.</th>
-                                        <th scope="col">Name of Patient</th>
-                                        <th scope="col">Phone No.</th>
-                                        <th scope="col">Age</th>
-                                        <th scope="col">Gender</th>
-                                        <th scope="col">City</th>
-                                        <th scope="col">Date Announced</th>
-                                        <th scope="col">Quarantined Date</th>
-                                        <th scope="col">action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%users.forEach((user, index) => {%>
-                                        <tr>
-                                            <td>
-                                                <%=index+1%>
-                                            </td>
-                                            <td>
-                                                <%=user.name1%>
-                                            </td>
-                                            <td>
-                                                <%=user.phoneNumber1%>
-                                            </td>
-                                            <td>
-                                                <%=user.age%>
-                                            </td>
-                                            <td>
-                                                <%=user.gender%>
-                                            </td>
-                                            <td>
-                                                <%=user.detectedCity.toString()%>
-                                            </td>
-                                            <td>
-                                                <%= user.dateAnnounced%>
-                                            </td>
-                                            <td>
-                                                <%=user.createdAt%>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <a href="/admin/patient/<%=user._id%>" class="btn btn-primary btn-sm rounded-circle"><i
-                                                            class="fas fa-eye"></i></a>
-                                                    <!-- <a href="#" class="btn btn-dark btn-sm rounded-circle"><i
-                                                            class="fas fa-edit"></i></a> -->
-                                                    <a href="#" class="btn btn-danger btn-sm rounded-circle"><i
-                                                            class="fas fa-trash"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <%})%>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Dark table -->
-            <!-- Footer -->
-            <footer class="py-5">
-                <div class="container">
-                    <div class="row align-items-center justify-content-xl-between">
-                        <div class="col-xl-6">
-                            <div class="copyright text-center text-xl-left text-muted">
-                                © 2020 <a href="https://bit.ly/Amigos1Landing" class="font-weight-bold ml-1" target="_blank">Amigos</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+      </div>
+      <!-- /page -->
+      <div class="page" id="page-docu">
+        <header class="bp-header cf">
+          <h1 class="bp-header__title">Documentation</h1>
+          <p class="bp-header__desc">
+            Based on Ilya Kostin's Dribbble shot
+            <a href="https://dribbble.com/shots/2286042-Stacked-navigation"
+              >Stacked navigation</a
+            >
+          </p>
+          <p class="info">
+            "We cannot have peace among men whose hearts find delight in killing
+            any living creature." &mdash; Rachel Carson
+          </p>
+        </header>
+        <img class="poster" src="images/6.jpg" alt="img06" />
+      </div>
+      <div class="page" id="page-manuals">
+        <header class="bp-header cf">
+          <h1 class="bp-header__title">Manuals</h1>
+          <p class="bp-header__desc">
+            Based on Ilya Kostin's Dribbble shot
+            <a href="https://dribbble.com/shots/2286042-Stacked-navigation"
+              >Stacked navigation</a
+            >
+          </p>
+          <p class="info">
+            "When you adopt a vegan diet we make a connection, you don't go
+            back, it is not a diet, it is a lifestyle." &mdash; Freelee
+            Frugivore
+          </p>
+        </header>
+        <img class="poster" src="images/2.jpg" alt="img02" />
+      </div>
+      <div class="page" id="page-software">
+        <header class="bp-header cf">
+          <h1 class="bp-header__title">Software &amp; Downloads</h1>
+          <p class="bp-header__desc">
+            Based on Ilya Kostin's Dribbble shot
+            <a href="https://dribbble.com/shots/2286042-Stacked-navigation"
+              >Stacked navigation</a
+            >
+          </p>
+          <p class="info">
+            "I decided to pick the diet that I thought would maximize my chances
+            of long-term survival." &mdash; Al Gore
+          </p>
+        </header>
+        <img class="poster" src="images/3.jpg" alt="img03" />
+      </div>
+      <div class="page" id="page-custom">
+        <header class="bp-header cf">
+          <h1 class="bp-header__title">Customization &amp; Settings</h1>
+          <p class="bp-header__desc">
+            Based on Ilya Kostin's Dribbble shot
+            <a href="https://dribbble.com/shots/2286042-Stacked-navigation"
+              >Stacked navigation</a
+            >
+          </p>
+          <p class="info">
+            "You have to make a conscious decision to change for your own
+            well-being, that of your family and your country." &mdash;Bill
+            Clinton
+          </p>
+        </header>
+        <img class="poster" src="images/4.jpg" alt="img04" />
+      </div>
+      <div class="page" id="page-training">
+        <header class="bp-header cf">
+          <h1 class="bp-header__title">Training &amp; Learning Center</h1>
+          <p class="bp-header__desc">
+            Based on Ilya Kostin's Dribbble shot
+            <a href="https://dribbble.com/shots/2286042-Stacked-navigation"
+              >Stacked navigation</a
+            >
+          </p>
+          <p class="info">
+            "The moment I began to understand what was going on with the
+            treatment of animals, it led me more and more in the way of the path
+            I am [on] now, which is a complete vegan." &mdash; Bryan Adams
+          </p>
+        </header>
+        <img class="poster" src="images/5.jpg" alt="img05" />
+      </div>
+      <div class="page" id="page-buy">
+        <header class="bp-header cf">
+          <h1 class="bp-header__title">Where to buy</h1>
+          <p class="bp-header__desc">
+            Based on Ilya Kostin's Dribbble shot
+            <a href="https://dribbble.com/shots/2286042-Stacked-navigation"
+              >Stacked navigation</a
+            >
+          </p>
+          <p class="info">
+            "When people ask me why I don't eat meat or any other animal
+            products, I say, 'Because they are unhealthy and they are the
+            product of a violent and inhumane industry.'" &mdash;
+          </p>
+        </header>
+        <img class="poster" src="images/6.jpg" alt="img06" />
+      </div>
+      <div class="page" id="page-blog">
+        <header class="bp-header cf">
+          <h1 class="bp-header__title">Blog &amp; News</h1>
+          <p class="bp-header__desc">
+            Based on Ilya Kostin's Dribbble shot
+            <a href="https://dribbble.com/shots/2286042-Stacked-navigation"
+              >Stacked navigation</a
+            >
+          </p>
+          <p class="info">
+            "The question is not, 'Can they reason?' nor, 'Can they talk?' but
+            rather, 'Can they suffer?" &mdash; Jeremy Bentham
+          </p>
+        </header>
+        <img class="poster" src="images/1.jpg" alt="img01" />
+      </div>
+      <div class="page" id="page-contact">
+        <header class="bp-header cf">
+          <h1 class="bp-header__title">Contact</h1>
+          <p class="bp-header__desc">
+            Based on Ilya Kostin's Dribbble shot
+            <a href="https://dribbble.com/shots/2286042-Stacked-navigation"
+              >Stacked navigation</a
+            >
+          </p>
+          <p class="info">
+            "Man is the only animal that can remain on friendly terms with the
+            victims he intends to eat until he eats them." &mdash; Samuel Butler
+          </p>
+        </header>
+        <img class="poster" src="images/4.jpg" alt="img04" />
+      </div>
     </div>
-    <!--   Core   -->
-    <!-- add new user-->
-    <div class="modal fade" id="modal-form2" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-        <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-body p-0">
-                    <div class="card bg-secondary border-0 mb-0">
-                        <div class="card-body px-lg-5 py-lg-5">
-                            <div class="text-center text-muted mb-4">
-                                <small>Quarantined details</small>
-                            </div>
-                            <form class="add-patient" action="/admin/patient" method="POST">
-                                <h6 class="heading-small text-muted mb-4">User information</h6>
-                                <div class="pl-lg-4">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-first-name">Full
-                                                        name</label>
-                                                <input type="text" id="input-first-name" name="name1" class="form-control" placeholder="Bill Gates" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-first-name1">Family
-                                                        Member
-                                                        name</label>
-                                                <input type="text" id="input-first-name1" name="name2" class="form-control" placeholder="Bill Gates" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-username">Phone
-                                                        No.</label>
-                                                <input type="tel" pattern="[0-9]{10}" maxlength="10" id="input-username" name="phoneNumber1" class="form-control" placeholder="1234567890" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-username">Phone
-                                                        No. 2</label>
-                                                <input type="text" pattern="[0-9]{10}" id="input-username" name="phoneNumber2" class="form-control" placeholder="1234567890" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!-- <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-email">Email
-                                                        address</label>
-                                                <input type="email" id="input-email" name="email" class="form-control" placeholder="example@example.com" required>
-                                            </div>
-                                        </div> -->
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-age">Age</label>
-                                                <input type="number" id="age" name="age" class="form-control" placeholder="example@example.com" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-last-name">Gender
-                                                    </label>
-                                                <select class="form-control" name="gender" id="exampleFormControlSelect1">
-                                                        <option value="m">Male</option>
-                                                        <option value="f">Female</option>
-                                                        <option value="o">other</option>
-                                                    </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="my-4">
-                                <!-- Address -->
-                                <h6 class="heading-small text-muted mb-4">Contact information</h6>
-                                <div class="pl-lg-4">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-block">State</label>
-                                                <input type="text" id="input-block" class="form-control" name="detectedState" placeholder="Rajasthan" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-postal-code">City</label>
-                                                <input type="text" id="input-postal-code" name="detectedCity" class="form-control" placeholder="Udaipur" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-postal-code">Block</label>
-                                                <input type="text" id="input-postal-code" name="block" class="form-control" placeholder="Udaipur" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-postal-code">Date
-                                                        Announced</label>
-                                                <input type="date" id="input-postal-code" name="dateAnnounced" class="form-control" placeholder="17/3/2020" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-postal-code">Full
-                                                        address</label>
-                                                <input type="text" id="input-postal-code" name="address" class="form-control" placeholder="sec 4 Udaipur Rajasthan india" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-postal-code">Travel Route</label>
-                                                <input type="text" id="input-postal-code" name="route" class="form-control" placeholder="Udaipur" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-postal-code">Travel Date</label>
-                                                <input type="date" id="input-postal-code" name="date" class="form-control" placeholder="17/3/2020" required>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <hr class="my-4 ">
-                                <!-- Description -->
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary my-4">Submit Details</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <!--   Argon JS   -->
-    <script src="../assets/js/argon-dashboard.min.js?v=1.1.1"></script>
-    <!-- datatable js -->
-    <script src="../datatables/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="../datatables/dataTables.bootstrap4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#dataTable").DataTable();
-        });
-    </script>
-
-    <script>
-        // to get the geo location of the user
-
-        // serialize the form data
-        $(".add-patient").on("submit", function(event) {
-            event.preventDefault();
-            var postdata;
-            var data = {}
-            postdata = $(this).serializeArray();
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    data.latitude = position.coords.latitude
-                    data.longitude = position.coords.longitude
-                    postdata.forEach(d => {
-                        data[d.name] = d.value
-                    })
-                    console.log(data)
-                    fetch('/admin/patient', {
-                        method: 'POST',
-                        headers: {
-                            "Content-type": "application/json"
-                        },
-                        body: JSON.stringify(data)
-                    }).then(res => res.json()).then(json => {
-                        alert(json.message)
-                        location.reload()
-                    }).catch(err => alert(err.message))
-                });
-            } else {
-                alert("please switch to chrome")
-            }
-
-            function showPosition(position) {
-                data.latitude = position.coords.latitude
-                data.longitude = position.coords.longitude
-            }
-        });
-    </script>
-</body>
-
+    <!-- /pages-stack -->
+    <button class="menu-button"><span>Menu</span></button>
+    <script src="js/classie.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
