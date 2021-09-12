@@ -5,8 +5,10 @@ const path = require('path')
 const router = express.Router()
 
 
-router.get('/', (req, res) => {
-    res.render('admin', { something: 'flight' })
+router.get('/', async(req, res) => {
+    
+
+    res.render('admin', { price: "something" })
 })
 
 router.get('*', (req, res) => {
