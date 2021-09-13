@@ -8,6 +8,10 @@ sensor: {
 value:{
     type: String,
     required: true,
+},
+date_time:{
+    type: Date,
+    required: true
 }
 }, {
     timestamps: true
