@@ -16,6 +16,55 @@ const findAverageAge = (arr) => {
    }, 0);
 };
 
+const getFertilizersAndCrop = async(arr , type) => {
+    if(type === 'fertilizers'){
+          const browser = await puppeteer.launch({ headless: false, devtools: true })
+        const page = await browser.newPage()
+        await page.goto('https://harvestify.herokuapp.com/fertilizer')
+
+        await page.click('#Nitrogen')
+        await page.keyboard.type('20')
+
+        await page.click('#Phosphorous')
+        await page.keyboard.type('20')
+
+        await page.click('#Pottasium')
+        await page.keyboard.type('20')
+
+        await page.select('select#crop', 'rice')
+
+        await page.click('.btn-info')
+        const html = await page.content()
+    }else{
+        const browser = await puppeteer.launch({ headless: false, devtools: true })
+        const page = await browser.newPage()
+        await page.goto('https://harvestify.herokuapp.com/crop-recommend')
+
+        await page.click('#Nitrogen')
+        await page.keyboard.type('20')
+
+        await page.click('#Phosphorous')
+        await page.keyboard.type('20')
+
+        await page.click('#Pottasium')
+        await page.keyboard.type('20')
+
+        await page.click('#ph')
+        await page.keyboard.type('20')
+
+        await page.click('#Rainfall')
+        await page.keyboard.type('20')
+
+        await page.select('select#sts', 'Rajasthan')
+
+        await page.select('select#state', 'Udaipur')
+
+        await page.click('.btn-info')
+        const html = await page.content()
+    }
+
+}
+
 
 router.get('/', async(req, res) => {
     
